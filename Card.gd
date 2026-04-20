@@ -2,7 +2,8 @@
 class_name Card
 extends Resource
 
-@export var card_name: String = ""
+@export var diverBell: String = "Diver's Bell"  # Placeholder for card image or identifier
+@export var card_name: String = "Card Name" # Placeholder for card name
 @export var description: String = ""
 @export var air_cost: int = 1        # "mana" but themed as oxygen
 @export var damage: int = 0
@@ -11,4 +12,5 @@ extends Resource
 
 # This runs when the card hits the discard pile
 func on_discard(battle):
-	pass  # We'll fill this in later for each card's special event
+	# By default, do nothing. Override in specific cards if needed.
+	pass

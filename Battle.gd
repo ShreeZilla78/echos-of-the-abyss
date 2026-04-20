@@ -2,7 +2,6 @@
 class_name Battle
 extends Node
 
-@warning_ignore("unused_class_variable")
 var DeckManager = preload("res://DeckManager.gd")
 
 # Player stats
@@ -35,8 +34,10 @@ func _ready():
 	player_health = player_max_health
 	player_air = player_max_air
 	# Set up the progress bars max values
+	health_label.text = "Health:" + str(player_health) + "/" + str(player_max_health)
 	health_bar.max_value = player_max_health
 	air_bar.max_value = player_max_air
+	air_label.text = "Air: " + str(player_air) + "/" + str(player_max_air)
 	# Connect the end turn button so clicking it calls end_turn()
 	end_turn_button.text = "End Turn"
 	end_turn_button.pressed.connect(end_turn)
@@ -144,6 +145,8 @@ func check_battle_end():
 	if enemy_health <= 0:
 		print("Victory! The creature retreats into the abyss...")
 		end_turn_button.disabled = true
+		get_tree().change_scene_to_file("res://WinScreen.tscn")
 	elif player_health <= 0:
 		print("The abyss claims another soul...")
 		end_turn_button.disabled = true
+		get_tree().change_scene_to_file("res://LoseScreen.tscn")
