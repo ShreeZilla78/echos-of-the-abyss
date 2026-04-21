@@ -9,7 +9,7 @@ extends Resource
 @export var damage: int = 0
 @export var block: int = 0
 @export var heal: int = 0
-
+@export var card_image: Texture2D = null
 # This runs when the card hits the discard pile
 func on_discard(battle):
 	# By default, do nothing. Override in specific cards if needed.

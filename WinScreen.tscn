@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://fcgolsld8ids"]
+
+[ext_resource type="Script" path="res://WinScreen.gd" id="1_a03an"]
+[ext_resource type="Texture2D" path="res://lucid-origin_Dark_underwater_cavern_muted_teal_and_deep_blue_palette_flat_colors_with_minimal-0.jpg" id="2_0eiwq"]
+
+[node name="WinScreen" type="Control" unique_id=1547049040]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_a03an")
+
+[node name="ResultLabel" type="Label" parent="." unique_id=1533975390]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 177.0
+offset_right = 687.0
+offset_bottom = 335.0
+
+[node name="Button" type="Button" parent="." unique_id=355810316]
+top_level = true
+layout_mode = 0
+offset_left = 936.0
+offset_top = 569.0
+offset_right = 1120.0
+offset_bottom = 627.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=156585806]
+show_behind_parent = true
+light_mask = 7
+layout_mode = 0
+offset_left = -8.0
+offset_top = -256.0
+offset_right = 1151.0
+offset_bottom = 768.0
+texture = ExtResource("2_0eiwq")

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cigwoe8a2jn0"]
+
+[ext_resource type="Texture2D" uid="uid://dedl2dg6r1xmo" path="res://assets/LastMine.png" id="1_huidv"]
+[ext_resource type="Script" uid="uid://dsbxvr5is7ha7" path="res://scripts/CardUI.gd" id="1_kwle2"]
+
+[node name="Panel" type="Panel" unique_id=1769212231]
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 43.0
+offset_bottom = 44.0
+script = ExtResource("1_kwle2")
+
+[node name="CardImg" type="TextureRect" parent="." unique_id=961882771]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 394.0
+offset_right = 235.0
+offset_bottom = 606.0
+texture = ExtResource("1_huidv")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="." unique_id=1846037459]
+layout_mode = 0
+offset_left = 741.0
+offset_top = 550.0
+offset_right = 846.0
+offset_bottom = 573.0
+
+[node name="AirCost" type="Label" parent="." unique_id=1376476506]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 878.0
+offset_top = 60.0
+offset_right = 965.0
+offset_bottom = 63.0
+text = "3"

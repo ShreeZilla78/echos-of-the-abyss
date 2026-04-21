@@ -29,6 +29,7 @@ var deck: DeckManager
 @onready var enemy_health_label = $UI/EnemyHealthLabel
 @onready var enemy_health_bar = $UI/EnemyHealthProgressBar
 @onready var end_turn_button = $UI/EndTurnButton
+@onready var event_label = $UI/EventLabel
 
 func _ready():
 	player_health = player_max_health
@@ -50,6 +51,14 @@ func _ready():
 	update_ui()
 	start_turn()
 
+# Call this to show a dramatic message then hide it
+func show_event_message(message: String):
+		event_label.text = message
+		event_label.visible = true
+		# Wait 2 seconds then hide it
+		await get_tree().create_timer(2.0).timeout
+		event_label.visible = false
+
 func add_starter_cards():
 	# A basic starter deck — 5 attack cards and 3 defend cards
 	for i in 5:
@@ -66,10 +75,10 @@ func add_starter_cards():
 		card.air_cost = 1
 		card.block = 4
 		deck.draw_pile.append(card)
-		# Add one Fatal Gambit to the deck
-	var fatal_gambit = FatalGambit.new()
-	deck.draw_pile.append(fatal_gambit)
-	deck.shuffle_draw_pile()
+		var fatal_gambit = FatalGambit.new()
+		deck.draw_pile.append(fatal_gambit)
+	deck.shuffle_draw_pile()# Add one Fatal Gambit to the deck
+	
 	
 
 func start_turn():
@@ -90,17 +99,13 @@ func update_ui():
 	enemy_health_bar.value = enemy_health
 
 func update_hand_display():
-	# Clear old card buttons
 	for child in hand_container.get_children():
 		child.queue_free()
-	# Create a button for each card in hand
 	for card in deck.hand:
-		var button = Button.new()
-		button.text = card.card_name + "\nCost: " + str(card.air_cost)
-		button.custom_minimum_size = Vector2(100, 120)
-		# When clicked, try to play that card
-		button.pressed.connect(try_play_card.bind(card))
-		hand_container.add_child(button)
+		var card_ui = preload("res://CardUI.tscn").instantiate()
+		card_ui.setup(card)
+		card_ui.card_clicked.connect(try_play_card)
+		hand_container.add_child(card_ui)
 
 func try_play_card(card: Card):
 	if not is_player_turn:
@@ -160,3 +165,18 @@ func check_battle_end():
 		print("The abyss claims another soul...")
 		end_turn_button.disabled = true
 		get_tree().change_scene_to_file("res://scenes/LoseScreen.tscn")
+
+func flash_screen(color: Color):
+	# Create a colored overlay that fades out
+	var overlay = ColorRect.new()
+	overlay.color = color
+	overlay.size = get_viewport().get_visible_rect().size
+	overlay.modulate.a = 0.8
+	add_child(overlay)
+	# Fade it out over 0.5 seconds
+	# tween just adds the Fade in and out effect to the screen
+
+	var tween = create_tween()
+	tween.tween_property(overlay, "modulate:a", 0.0, 0.5)
+	await tween.finished
+	overlay.queue_free()
