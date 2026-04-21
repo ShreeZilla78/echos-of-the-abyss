@@ -126,7 +126,10 @@ func end_turn():
 
 func enemy_take_turn():
 	var damage_after_block = max(0, enemy_damage - player_block)
-	player_health -= damage_after_block
+	if damage_after_block > player_health:
+		player_health = 0
+	else:
+		player_health -= damage_after_block
 	player_block = 0
 	update_ui()
 	check_battle_end()
@@ -134,7 +137,10 @@ func enemy_take_turn():
 		start_turn()
 
 func apply_damage(amount: int):
-	enemy_health -= amount
+	if amount > enemy_health:
+		enemy_health = 0
+	else:
+		enemy_health -= amount
 	update_ui()
 
 func player_gain_block(amount: int):

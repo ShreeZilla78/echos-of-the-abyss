@@ -22,7 +22,6 @@ func _ready():
 func _physics_process(delta):
 	# Get keyboard input
 	var direction = Vector2.ZERO
-	var direction_multiplier = 1.0
 	
 	if Input.is_action_pressed("ui_right"):
 		direction.x += 1
