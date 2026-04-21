@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://co8y1scvdd63"]
 
-[ext_resource type="Script" uid="uid://b6bi85hnicotn" path="res://Battle.gd" id="1_lul25"]
-[ext_resource type="Texture2D" uid="uid://dr0naddjuhkye" path="res://lucid-origin_Dark_underwater_cavern_muted_teal_and_deep_blue_palette_flat_colors_with_minimal-0 (1).jpg" id="1_u8cu3"]
+[ext_resource type="Script" uid="uid://b6bi85hnicotn" path="res://scripts/Battle.gd" id="1_0448q"]
+[ext_resource type="Texture2D" uid="uid://dr0naddjuhkye" path="res://assets/lucid-origin_Dark_underwater_cavern_muted_teal_and_deep_blue_palette_flat_colors_with_minimal-0 (1).jpg" id="2_2rusm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1046u"]
 bg_color = Color(0.8035917, 0, 0.18138263, 1)
@@ -18,7 +18,7 @@ bg_color = Color(0.11764706, 0.50980395, 0.78431374, 1)
 [node name="Battle" type="Control" unique_id=852200601]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_lul25")
+script = ExtResource("1_0448q")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1309173922]
 
@@ -93,5 +93,5 @@ layout_mode = 0
 offset_top = -15.0
 offset_right = 1344.0
 offset_bottom = 753.0
-texture = ExtResource("1_u8cu3")
+texture = ExtResource("2_2rusm")
 stretch_mode = 3

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dbunkv62nodaa"]
 
-[ext_resource type="PackedScene" uid="uid://dykn8egb30nh6" path="res://Diver.tscn" id="1_r63r8"]
+[ext_resource type="PackedScene" uid="uid://dykn8egb30nh6" path="res://scenes/Diver.tscn" id="1_r63r8"]
 
 [node name="WorldMap" type="Node2D" unique_id=245920443]
 position = Vector2(121, 187)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d0jfja7hiuswu"]
 
-[ext_resource type="Script" uid="uid://04sb7c66bqgh" path="res://LooseScene.gd" id="1_5al32"]
-[ext_resource type="Texture2D" uid="uid://b2a74hhgul8ba" path="res://lucid-origin_Dark_underwater_cavern_muted_teal_and_deep_blue_palette_flat_colors_with_minimal-0.jpg" id="1_184tu"]
+[ext_resource type="Script" uid="uid://04sb7c66bqgh" path="res://scripts/LooseScene.gd" id="1_5al32"]
+[ext_resource type="Texture2D" uid="uid://b2a74hhgul8ba" path="res://assets/lucid-origin_Dark_underwater_cavern_muted_teal_and_deep_blue_palette_flat_colors_with_minimal-0.jpg" id="1_184tu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5al32"]
 bg_color = Color(0.004299996, 0.1036301, 0.43, 1)

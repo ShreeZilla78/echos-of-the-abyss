@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dykn8egb30nh6"]
 
-[ext_resource type="Script" uid="uid://d1p25itrm5u0y" path="res://diver.gd" id="1_xboaq"]
+[ext_resource type="Script" uid="uid://d1p25itrm5u0y" path="res://scripts/diver.gd" id="1_xboaq"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xboaq"]
 size = Vector2(16, 16)

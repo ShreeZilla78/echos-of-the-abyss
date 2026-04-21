@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dj4j2s4108es"]
 
-[ext_resource type="Script" uid="uid://doru1m1p1fas0" path="res://WinScreen.gd" id="1_a03an"]
-[ext_resource type="Texture2D" uid="uid://b2a74hhgul8ba" path="res://lucid-origin_Dark_underwater_cavern_muted_teal_and_deep_blue_palette_flat_colors_with_minimal-0.jpg" id="2_0eiwq"]
+[ext_resource type="Script" uid="uid://doru1m1p1fas0" path="res://scripts/WinScreen.gd" id="1_a03an"]
+[ext_resource type="Texture2D" uid="uid://b2a74hhgul8ba" path="res://assets/lucid-origin_Dark_underwater_cavern_muted_teal_and_deep_blue_palette_flat_colors_with_minimal-0.jpg" id="2_0eiwq"]
 
 [node name="WinScreen" type="Control" unique_id=1547049040]
 layout_mode = 3
