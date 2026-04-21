@@ -10,4 +10,4 @@ func _ready():
 	continue_button.pressed.connect(continue_game)
 
 func continue_game():
-	get_tree().change_scene_to_file("res://world_map.tscn")
+	get_tree().change_scene_to_file("res://scenes/world_map.tscn")

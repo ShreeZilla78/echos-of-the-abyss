@@ -2,7 +2,7 @@
 class_name Battle
 extends Node
 
-var DeckManager = preload("res://DeckManager.gd")
+var DeckManager = preload("res://scripts/DeckManager.gd")
 
 # Player stats
 var player_max_health: int = 50
@@ -149,8 +149,8 @@ func check_battle_end():
 	if enemy_health <= 0:
 		print("Victory! The creature retreats into the abyss...")
 		end_turn_button.disabled = true
-		get_tree().change_scene_to_file("res://WinScreen.tscn")
+		get_tree().change_scene_to_file("res://scenes/WinScreen.tscn")
 	elif player_health <= 0:
 		print("The abyss claims another soul...")
 		end_turn_button.disabled = true
-		get_tree().change_scene_to_file("res://LoseScreen.tscn")
+		get_tree().change_scene_to_file("res://scenes/LoseScreen.tscn")
