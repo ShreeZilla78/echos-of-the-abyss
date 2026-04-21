@@ -26,7 +26,6 @@ offset_right = 1120.0
 offset_bottom = 627.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=156585806]
-visible = false
 show_behind_parent = true
 light_mask = 7
 layout_mode = 0

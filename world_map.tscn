@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://dbunkv62nodaa"]
 
-[node name="WorldMap" type="Node" unique_id=1470819994]
+[ext_resource type="PackedScene" uid="uid://dykn8egb30nh6" path="res://Diver.tscn" id="1_r63r8"]
+
+[node name="WorldMap" type="Node2D" unique_id=245920443]
+position = Vector2(121, 187)
+
+[node name="SeaFloor" type="TileMap" parent="." unique_id=1931035446]
+position = Vector2(455, 154)
+format = 2
+
+[node name="Diver" parent="." unique_id=1376913090 instance=ExtResource("1_r63r8")]
+position = Vector2(-108, 435)

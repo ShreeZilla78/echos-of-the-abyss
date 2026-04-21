@@ -66,7 +66,11 @@ func add_starter_cards():
 		card.air_cost = 1
 		card.block = 4
 		deck.draw_pile.append(card)
+		# Add one Fatal Gambit to the deck
+	var fatal_gambit = FatalGambit.new()
+	deck.draw_pile.append(fatal_gambit)
 	deck.shuffle_draw_pile()
+	
 
 func start_turn():
 	player_air = player_max_air
