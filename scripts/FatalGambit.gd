@@ -3,7 +3,7 @@ class_name FatalGambit
 extends Card
 
 func _init():
-	card_name = "The Fatal Gambit"
+	card_name = "Fatal Gambit"
 	description = "50/50. Absolute victory or absolute demise."
 	air_cost = 3
 	damage = 0
@@ -14,8 +14,7 @@ func _init():
 
 func on_discard(battle):
 	# makes it wait for the white flash
-	await battle.flash_screen(Color.WHITE)
-
+	#await battle.flash_screen(Color.WHITE)
 
 	var roll = randi() % 2
 	

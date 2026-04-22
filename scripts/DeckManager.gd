@@ -27,7 +27,7 @@ func play_card(card: Card, battle):
 	# Move to discard pile and fire the discard event
 	discard_pile.append(card)
 	card.on_discard(battle)
-
+	
 func recycle_discard():
 	# Shuffle discard pile back into the draw pile when draw pile runs out
 	draw_pile = discard_pile.duplicate()

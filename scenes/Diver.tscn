@@ -6,7 +6,7 @@
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xboaq"]
-size = Vector2(82, 30)
+size = Vector2(15.5, 16)
 
 [node name="Diver" type="CharacterBody2D" unique_id=1376913090]
 position = Vector2(11, 617)
@@ -17,7 +17,7 @@ position = Vector2(4, 0)
 texture = SubResource("PlaceholderTexture2D_xboaq")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=737796759]
-position = Vector2(64, 13)
+position = Vector2(4.25, 0)
 shape = SubResource("RectangleShape2D_xboaq")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 

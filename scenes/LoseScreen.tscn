@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://fcgolsld8ids"]
+[gd_scene format=3 uid="uid://c2wc6bcpjafs7"]
 
-[ext_resource type="Script" path="res://WinScreen.gd" id="1_a03an"]
-[ext_resource type="Texture2D" path="res://lucid-origin_Dark_underwater_cavern_muted_teal_and_deep_blue_palette_flat_colors_with_minimal-0.jpg" id="2_0eiwq"]
+[ext_resource type="Script" uid="uid://04sb7c66bqgh" path="res://scripts/LoseScene.gd" id="1_x3j6d"]
+[ext_resource type="Texture2D" uid="uid://b2a74hhgul8ba" path="res://assets/lucid-origin_Dark_underwater_cavern_muted_teal_and_deep_blue_palette_flat_colors_with_minimal-0.jpg" id="2_0eiwq"]
 
-[node name="WinScreen" type="Control" unique_id=1547049040]
+[node name="LoseScreen" type="Control" unique_id=1547049040]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_a03an")
+script = ExtResource("1_x3j6d")
 
 [node name="ResultLabel" type="Label" parent="." unique_id=1533975390]
 layout_mode = 0
@@ -17,7 +17,7 @@ offset_top = 177.0
 offset_right = 687.0
 offset_bottom = 335.0
 
-[node name="Button" type="Button" parent="." unique_id=355810316]
+[node name="ReturnButton" type="Button" parent="." unique_id=355810316]
 top_level = true
 layout_mode = 0
 offset_left = 936.0

@@ -1,7 +1,7 @@
 # LooseScene.gd
 extends Control
 
-@onready var result_label = $LooseScene
+@onready var result_label = $ResultLabel
 @onready var continue_button = $ReturnButton
 
 func _ready():

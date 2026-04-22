@@ -19,6 +19,8 @@ var enemy_damage: int = 8
 var is_player_turn: bool = true
 var deck: DeckManager
 
+var battle_ended: bool = false
+
 # These connect the script to the nodes in your scene panel
 # The $ path must match your node names exactly
 @onready var health_label = $UI/PlayerStats/HealthLabel
@@ -75,11 +77,9 @@ func add_starter_cards():
 		card.air_cost = 1
 		card.block = 4
 		deck.draw_pile.append(card)
-		var fatal_gambit = FatalGambit.new()
-		deck.draw_pile.append(fatal_gambit)
-	deck.shuffle_draw_pile()# Add one Fatal Gambit to the deck
-	
-	
+	#var fatal_gambit = FatalGambit.new()
+	#deck.draw_pile.append(fatal_gambit)
+	deck.shuffle_draw_pile() # Add one Fatal Gambit to the deck
 
 func start_turn():
 	player_air = player_max_air
@@ -147,6 +147,7 @@ func apply_damage(amount: int):
 	else:
 		enemy_health -= amount
 	update_ui()
+	check_battle_end()
 
 func player_gain_block(amount: int):
 	player_block += amount
@@ -157,11 +158,16 @@ func player_heal(amount: int):
 	update_ui()
 
 func check_battle_end():
+	if battle_ended:
+		return
+	
 	if enemy_health <= 0:
+		battle_ended = true
 		print("Victory! The creature retreats into the abyss...")
 		end_turn_button.disabled = true
 		get_tree().change_scene_to_file("res://scenes/WinScreen.tscn")
 	elif player_health <= 0:
+		battle_ended = true
 		print("The abyss claims another soul...")
 		end_turn_button.disabled = true
 		get_tree().change_scene_to_file("res://scenes/LoseScreen.tscn")
