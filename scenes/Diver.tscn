@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://dykn8egb30nh6"]
 
 [ext_resource type="Script" uid="uid://d1p25itrm5u0y" path="res://scripts/diver.gd" id="1_xboaq"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xboaq"]
-size = Vector2(16, 16)
+[ext_resource type="Texture2D" uid="uid://24fbu7i2bo8u" path="res://assets/AdvancedDiverPlaceholderArt/east.png" id="2_xgvnv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xboaq"]
-size = Vector2(15.5, 16)
+size = Vector2(6, 27)
 
 [node name="Diver" type="CharacterBody2D" unique_id=1376913090]
 position = Vector2(11, 617)
@@ -14,10 +12,10 @@ script = ExtResource("1_xboaq")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=185999072]
 position = Vector2(4, 0)
-texture = SubResource("PlaceholderTexture2D_xboaq")
+texture = ExtResource("2_xgvnv")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=737796759]
-position = Vector2(4.25, 0)
+position = Vector2(3, 2.5)
 shape = SubResource("RectangleShape2D_xboaq")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 

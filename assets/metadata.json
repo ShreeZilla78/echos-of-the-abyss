@@ -1,0 +1,30 @@
+{
+  "character": {
+    "id": "e2747326-ec47-4f0f-838c-b77ad96f1337",
+    "name": "An underwater astronaut with a blue, black, and white color theme.",
+    "prompt": "An underwater astronaut with a blue, black, and white color theme.",
+    "size": {
+      "width": 48,
+      "height": 48
+    },
+    "template_id": "mannequin",
+    "directions": 8,
+    "view": "high top-down",
+    "created_at": "2026-04-23T00:12:01.692482+00:00"
+  },
+  "frames": {
+    "rotations": {
+      "south": "rotations/south.png",
+      "south-east": "rotations/south-east.png",
+      "east": "rotations/east.png",
+      "north-east": "rotations/north-east.png",
+      "north": "rotations/north.png",
+      "north-west": "rotations/north-west.png",
+      "west": "rotations/west.png",
+      "south-west": "rotations/south-west.png"
+    },
+    "animations": {}
+  },
+  "export_version": "2.0",
+  "export_date": "2026-04-23T00:14:01.982755"
+}

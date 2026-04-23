@@ -42,6 +42,11 @@ func _physics_process(delta):
 	
 	# Flip sprite based on direction
 	if direction.x > 0:
-		$Sprite.flip_h = false
+		$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/east.png")
 	elif direction.x < 0:
-		$Sprite.flip_h = true
+		$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/west.png")
+		
+	if direction.y > 0:
+		$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/south.png")
+	elif direction.y < 0:
+		$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/north.png")
