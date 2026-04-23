@@ -12,9 +12,9 @@ func _init():
 	card_image = preload("res://assets/LastMine.png") # this adds the image to the card, 
 	#you can replace it with any image you want in the future
 
-func on_discard(battle):
-	# makes it wait for the white flash
-	#await battle.flash_screen(Color.WHITE)
+func on_play(battle):
+	#Makes it wait for the white flash
+	await battle.flash_screen(Color.WHITE)
 
 	var roll = randi() % 2
 	

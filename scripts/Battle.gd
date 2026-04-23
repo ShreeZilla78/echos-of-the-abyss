@@ -54,11 +54,11 @@ func _ready():
 	start_turn()
 
 # Call this to show a dramatic message then hide it
-func show_event_message(message: String):
+func show_event_message(message: String, time: float = 2.0):
 		event_label.text = message
 		event_label.visible = true
 		# Wait 2 seconds then hide it
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(time).timeout
 		event_label.visible = false
 
 func add_starter_cards():
@@ -77,8 +77,8 @@ func add_starter_cards():
 		card.air_cost = 1
 		card.block = 4
 		deck.draw_pile.append(card)
-	#var fatal_gambit = FatalGambit.new()
-	#deck.draw_pile.append(fatal_gambit)
+	var fatal_gambit = FatalGambit.new()
+	deck.draw_pile.append(fatal_gambit)
 	deck.shuffle_draw_pile() # Add one Fatal Gambit to the deck
 
 func start_turn():
@@ -111,7 +111,7 @@ func try_play_card(card: Card):
 	if not is_player_turn:
 		return
 	if player_air < card.air_cost:
-		print("Not enough air!")
+		show_event_message("Not enough air!", 0.5)
 		return
 	player_air -= card.air_cost
 	deck.play_card(card, self)

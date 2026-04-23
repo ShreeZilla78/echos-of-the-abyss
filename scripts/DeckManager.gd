@@ -21,9 +21,7 @@ func draw_card(amount: int = 1):
 func play_card(card: Card, battle):
 	hand.erase(card)
 	# Apply the card's effects to the battle
-	battle.apply_damage(card.damage)
-	battle.player_gain_block(card.block)
-	battle.player_heal(card.heal)
+	card.on_play(battle)
 	# Move to discard pile and fire the discard event
 	discard_pile.append(card)
 	card.on_discard(battle)
