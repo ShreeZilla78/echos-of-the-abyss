@@ -1,22 +1,21 @@
 [gd_scene format=3 uid="uid://dbunkv62nodaa"]
 
-[ext_resource type="Texture2D" uid="uid://b2a74hhgul8ba" path="res://assets/lucid-origin_Dark_underwater_cavern_muted_teal_and_deep_blue_palette_flat_colors_with_minimal-0.jpg" id="1_qqero"]
+[ext_resource type="Texture2D" uid="uid://by6104ydxvjyf" path="res://assets/TestMap.png" id="1_qqero"]
 [ext_resource type="PackedScene" uid="uid://dykn8egb30nh6" path="res://scenes/Diver.tscn" id="1_r63r8"]
 
 [node name="WorldMap" type="Node2D" unique_id=245920443]
 position = Vector2(121, 187)
+metadata/_edit_vertical_guides_ = [1152.0]
+metadata/_edit_horizontal_guides_ = [640.0]
 
-[node name="SeaFloor" type="TileMap" parent="." unique_id=1931035446]
-visible = false
-position = Vector2(455, 154)
-format = 2
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1886910844]
-offset_left = -569.0
-offset_top = -284.0
-offset_right = 455.0
-offset_bottom = 740.0
+[node name="TextureRect" type="TextureRect" parent="." unique_id=301819531]
+offset_left = -121.0
+offset_top = -187.0
+offset_right = 1415.0
+offset_bottom = 837.0
+scale = Vector2(0.7496687, 0.6301946)
 texture = ExtResource("1_qqero")
 
 [node name="Diver" parent="." unique_id=1376913090 instance=ExtResource("1_r63r8")]
-position = Vector2(-108, 435)
+position = Vector2(23, 221)
+scale = Vector2(3.5, 3.5)

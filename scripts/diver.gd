@@ -16,8 +16,8 @@ func _ready():
 	# Set how far the camera can scroll
 	$Camera.limit_left = 0
 	$Camera.limit_top = 0
-	$Camera.limit_right = 3000
-	$Camera.limit_bottom = 3000
+	$Camera.limit_right = 1152
+	$Camera.limit_bottom = 640
 
 func _physics_process(delta):
 	# Get keyboard input
@@ -42,11 +42,31 @@ func _physics_process(delta):
 	
 	# Flip sprite based on direction
 	if direction.x > 0:
-		$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/east.png")
+		if direction.y > 0:
+			$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/south-east.png")
+		elif direction.y < 0:
+			$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/north-east.png")
+		else:
+			$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/east.png")
 	elif direction.x < 0:
-		$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/west.png")
+		if direction.y > 0:
+			$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/south-west.png")
+		elif direction.y < 0:
+			$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/north-west.png")
+		else:
+			$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/west.png")
 		
 	if direction.y > 0:
-		$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/south.png")
+		if direction.x > 0:
+			$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/south-east.png")
+		elif direction.x < 0:
+			$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/south-west.png")
+		else:
+			$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/south.png")
 	elif direction.y < 0:
-		$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/north.png")
+		if direction.x > 0:
+			$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/north-east.png")
+		elif direction.x < 0:
+			$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/north-west.png")
+		else:
+			$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/north.png")
