@@ -3,21 +3,24 @@ class_name Player
 extends CharacterBody2D
 
 # How fast the diver moves
-@export var move_speed: int = 100
+@export var move_speed: int = 200
 
 # Pixel art needs this to look crisp
 @export var pixel_size: int = 2
 
+@onready var camera = $Camera2D
+
 func _ready():
+	$Camera.enabled = false
 	# Make camera follow player smoothly
-	$Camera.make_current()
-	$Camera.position_smoothing_enabled = true
-	$Camera.position_smoothing_speed = 5.0
+	camera.make_current()
+	camera.position_smoothing_enabled = true
+	camera.position_smoothing_speed = 5.0
 	# Set how far the camera can scroll
-	$Camera.limit_left = 0
-	$Camera.limit_top = 0
-	$Camera.limit_right = 1152
-	$Camera.limit_bottom = 640
+	camera.limit_left = 0
+	camera.limit_top = 0
+	camera.limit_right = 1152
+	camera.limit_bottom = 640
 
 func _physics_process(delta):
 	# Get keyboard input

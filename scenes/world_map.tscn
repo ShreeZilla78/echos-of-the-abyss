@@ -9,13 +9,13 @@ metadata/_edit_vertical_guides_ = [1152.0]
 metadata/_edit_horizontal_guides_ = [640.0]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=301819531]
-offset_left = -121.0
-offset_top = -187.0
-offset_right = 1415.0
-offset_bottom = 837.0
-scale = Vector2(0.7496687, 0.6301946)
+offset_left = -312.00006
+offset_top = -298.00003
+offset_right = 1224.0
+offset_bottom = 726.0
+scale = Vector2(0.9990573, 0.8409415)
 texture = ExtResource("1_qqero")
 
 [node name="Diver" parent="." unique_id=1376913090 instance=ExtResource("1_r63r8")]
 position = Vector2(23, 221)
-scale = Vector2(1.465, 1.465)
+scale = Vector2(3.5, 3.5)
