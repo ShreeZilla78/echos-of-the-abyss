@@ -1,7 +1,4 @@
-[gd_scene format=3 uid="uid://co8y1scvdd63"]
-
-[ext_resource type="Script" uid="uid://b6bi85hnicotn" path="res://scripts/Battle.gd" id="1_0448q"]
-[ext_resource type="Texture2D" uid="uid://dr0naddjuhkye" path="res://assets/lucid-origin_Dark_underwater_cavern_muted_teal_and_deep_blue_palette_flat_colors_with_minimal-0 (1).jpg" id="2_2rusm"]
+[gd_scene format=3 uid="uid://coinvssgepjd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1046u"]
 bg_color = Color(0.8035917, 0, 0.18138263, 1)
@@ -15,36 +12,31 @@ bg_color = Color(0.11764706, 0.7058824, 0.78431374, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yh5fh"]
 bg_color = Color(0.11764706, 0.50980395, 0.78431374, 1)
 
-[sub_resource type="Theme" id="Theme_0448q"]
-default_font_size = 26
-
 [node name="Battle" type="Control" unique_id=852200601]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_0448q")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1309173922]
 
 [node name="PlayerStats" type="Control" parent="UI" unique_id=629485168]
 layout_mode = 3
 anchors_preset = 0
-offset_top = -40.0
 offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="HealthLabel" type="Label" parent="UI/PlayerStats" unique_id=1032334276]
 layout_mode = 0
-offset_left = 315.0
-offset_top = 560.0
-offset_right = 530.0
-offset_bottom = 589.0
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 212.0
+offset_top = 561.0
+offset_right = 427.0
+offset_bottom = 590.0
+text = "Health"
 
 [node name="HealthBar" type="ProgressBar" parent="UI/PlayerStats" unique_id=751849736]
 layout_mode = 0
-offset_left = 45.0
+offset_left = 40.0
 offset_top = 595.0
-offset_right = 535.0
+offset_right = 530.0
 offset_bottom = 622.0
 theme_override_styles/background = SubResource("StyleBoxFlat_1046u")
 theme_override_styles/fill = SubResource("StyleBoxFlat_pjn1s")
@@ -55,6 +47,7 @@ offset_left = 6.0
 offset_top = 96.0
 offset_right = 109.0
 offset_bottom = 140.0
+text = "Oxygen"
 
 [node name="AirBar" type="ProgressBar" parent="UI/PlayerStats" unique_id=1662346048]
 layout_mode = 0
@@ -65,59 +58,55 @@ offset_bottom = 575.0
 theme_override_colors/font_color = Color(1, 0.9490196, 0.9490196, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_lul25")
 theme_override_styles/fill = SubResource("StyleBoxFlat_yh5fh")
-fill_mode = 3
 
-[node name="HandContainer" type="HBoxContainer" parent="UI" unique_id=190471987]
-custom_minimum_size = Vector2(80, 80)
-offset_left = 131.0
-offset_top = 30.0
-offset_right = 331.0
-offset_bottom = 145.0
+[node name="HandContainer" type="Control" parent="UI" unique_id=1564466323]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 781.0
+offset_top = 459.0
+offset_right = 959.0
+offset_bottom = 647.0
+
+[node name="Button" type="Button" parent="UI/HandContainer" unique_id=1472097925]
+visible = false
+clip_children = 1
+layout_mode = 0
+offset_right = 140.0
+offset_bottom = 188.0
+text = "Card 1"
 
 [node name="EnemyHealthLabel" type="Label" parent="UI" unique_id=1278208769]
 offset_left = 957.0
-offset_top = 121.0
+offset_top = 161.0
 offset_right = 1075.0
-offset_bottom = 150.0
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_bottom = 190.0
 
 [node name="EnemyHealthProgressBar" type="ProgressBar" parent="UI" unique_id=1881140646]
 offset_left = 676.0
-offset_top = 154.0
+offset_top = 194.0
 offset_right = 1098.0
-offset_bottom = 181.0
+offset_bottom = 221.0
 
 [node name="EndTurnButton" type="Button" parent="UI" unique_id=1869606213]
 offset_left = 574.0
-offset_top = 526.0
+offset_top = 566.0
 offset_right = 704.0
-offset_bottom = 586.0
-text = "End turn Button"
+offset_bottom = 626.0
+theme_override_colors/font_color = Color(0.88, 0.061599992, 0.061599992, 1)
+text = "End Turn"
 
-[node name="EventLabel" type="Label" parent="UI" unique_id=1449129195]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -333.0
-offset_top = -51.5
-offset_right = 333.0
-offset_bottom = -0.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_0448q")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="EventLabel" type="Label" parent="UI" unique_id=19748105]
+offset_left = 720.0
+offset_top = 573.0
+offset_right = 792.0
+offset_bottom = 622.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1257315077]
 show_behind_parent = true
 clip_children = 2
 layout_direction = 4
-layout_mode = 1
-offset_top = -85.0
+layout_mode = 0
+offset_top = -15.0
 offset_right = 1344.0
-offset_bottom = 683.0
-texture = ExtResource("2_2rusm")
+offset_bottom = 753.0
 stretch_mode = 3

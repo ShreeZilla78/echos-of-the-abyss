@@ -18,4 +18,4 @@ texture = ExtResource("1_qqero")
 
 [node name="Diver" parent="." unique_id=1376913090 instance=ExtResource("1_r63r8")]
 position = Vector2(23, 221)
-scale = Vector2(3.5, 3.5)
+scale = Vector2(1.465, 1.465)
