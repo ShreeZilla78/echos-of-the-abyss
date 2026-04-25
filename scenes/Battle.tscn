@@ -93,7 +93,7 @@ offset_left = 574.0
 offset_top = 526.0
 offset_right = 704.0
 offset_bottom = 586.0
-text = "End turn Button"
+text = "End Turn"
 
 [node name="EventLabel" type="Label" parent="UI" unique_id=1449129195]
 anchors_preset = 8

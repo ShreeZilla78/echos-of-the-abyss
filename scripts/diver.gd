@@ -4,9 +4,9 @@ extends CharacterBody2D
 
 # How fast the diver moves
 @export var move_speed: int = 200
-
 # Pixel art needs this to look crisp
 @export var pixel_size: int = 2
+@export var dash_speed: int = 2
 
 @onready var camera = $Camera2D
 
@@ -19,13 +19,15 @@ func _ready():
 	# Set how far the camera can scroll
 	camera.limit_left = 0
 	camera.limit_top = 0
-	camera.limit_right = 1152
-	camera.limit_bottom = 640
+	camera.limit_right = 1532
+	camera.limit_bottom = 1023
 
-func _physics_process(delta):
-	# Get keyboard input
+func _physics_process(delta):	
 	var direction = Vector2.ZERO
-	
+
+	if Input.is_action_pressed("Sprint"):
+		move_speed += 75
+		
 	if Input.is_action_pressed("ui_right"):
 		direction.x += 1
 	if Input.is_action_pressed("ui_left"):
@@ -43,6 +45,8 @@ func _physics_process(delta):
 	velocity = direction * move_speed
 	move_and_slide()
 	
+	move_speed = 200
+
 	# Flip sprite based on direction
 	if direction.x > 0:
 		if direction.y > 0:
