@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cnjrj1wuynmik"]
+
+[ext_resource type="Script" uid="uid://d1p25itrm5u0y" path="res://scripts/diver.gd" id="1_8e07o"]
+
+[node name="SurfaceMap" type="Node2D" unique_id=412473697]
+position = Vector2(2, 1)
+
+[node name="Diver" type="CharacterBody2D" parent="." unique_id=716167754]
+position = Vector2(354, 496)
+script = ExtResource("1_8e07o")
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=1418749028]
