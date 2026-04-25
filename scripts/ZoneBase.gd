@@ -1,0 +1,20 @@
+# ZoneBase.gd
+extends Node2D
+
+@onready var exit_zone = $ExitZone
+
+func _ready():
+	# Apply atmosphere color based on depth
+	var atmosphere = MapManager.get_atmosphere_color()
+	RenderingServer.set_default_clear_color(atmosphere)
+	# Restore player health from MapManager
+	$Diver.health = MapManager.player_health
+	# Connect exit zone
+	exit_zone.body_entered.connect(on_player_reached_exit)
+
+func on_player_reached_exit(body):
+	if body is Player:
+		# Save player health before leaving
+		MapManager.player_health = $Diver.health
+		print("Zone complete! Diving deeper...")
+		MapManager.go_to_next_zone()

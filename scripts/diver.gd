@@ -10,6 +10,9 @@ extends CharacterBody2D
 
 @onready var camera = $Camera2D
 
+var health: int = 50
+var max_health: int = 50
+
 func _ready():
 	$Camera.enabled = false
 	# Make camera follow player smoothly

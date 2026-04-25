@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bgaliw87px2sc"]
+
+[ext_resource type="Script" uid="uid://be3ww888ekms5" path="res://scripts/ZoneBase.gd" id="1_seuly"]
+[ext_resource type="PackedScene" uid="uid://dykn8egb30nh6" path="res://scenes/Diver.tscn" id="2_seuly"]
+
+[node name="SurfaceMap" type="Node2D" unique_id=412473697]
+position = Vector2(6, 7)
+script = ExtResource("1_seuly")
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=1418749028]
+
+[node name="ExitZone" type="Area2D" parent="." unique_id=756785161]
+position = Vector2(555, 305)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ExitZone" unique_id=781420940]
+position = Vector2(59, -4)
+polygon = PackedVector2Array(-70, -49, -12, 16, -95, 47)
+
+[node name="Diver" parent="." unique_id=1376913090 instance=ExtResource("2_seuly")]
+position = Vector2(199, 475)
+scale = Vector2(2, 2)
+
+[node name="Camera2D" type="Camera2D" parent="Diver" unique_id=1203141973]
+position = Vector2(-13.428589, -26.85714)
+scale = Vector2(0.28571424, 0.28571424)
+zoom = Vector2(0.75, 0.75)
