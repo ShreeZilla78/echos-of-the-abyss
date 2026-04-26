@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dbunkv62nodaa"]
+
+[ext_resource type="Texture2D" uid="uid://by6104ydxvjyf" path="res://assets/TestMap.png" id="1_x07db"]
+[ext_resource type="PackedScene" uid="uid://dykn8egb30nh6" path="res://scenes/Diver.tscn" id="2_kyqyn"]
+
+[node name="Shallows" type="Node2D" unique_id=245920443]
+position = Vector2(121, 187)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1215530511]
+offset_left = -121.0
+offset_top = -187.0
+offset_right = 1415.0
+offset_bottom = 837.0
+texture = ExtResource("1_x07db")
+
+[node name="Diver" parent="." unique_id=1376913090 instance=ExtResource("2_kyqyn")]
+position = Vector2(694.00006, 339.00003)
+scale = Vector2(3.5, 3.5)

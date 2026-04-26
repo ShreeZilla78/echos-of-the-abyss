@@ -12,8 +12,6 @@ var player_health: int = 50
 var player_max_health: int = 50
 var player_deck: Array = []
 
-
-
 # Enemy info for battles
 var current_enemy: String = "basic"
 

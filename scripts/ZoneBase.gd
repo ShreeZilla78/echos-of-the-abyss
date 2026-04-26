@@ -9,6 +9,8 @@ func _ready():
 	RenderingServer.set_default_clear_color(atmosphere)
 	# Restore player health from MapManager
 	$Diver.health = MapManager.player_health
+	$Diver.camera.limit_right = 1536
+	$Diver.camera.limit_bottom = 864
 	# Connect exit zone
 	exit_zone.body_entered.connect(on_player_reached_exit)
 

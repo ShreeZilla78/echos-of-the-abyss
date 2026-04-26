@@ -6,15 +6,13 @@ extends CharacterBody2D
 @export var move_speed: int = 200
 # Pixel art needs this to look crisp
 @export var pixel_size: int = 2
-@export var dash_speed: int = 2
 
-@onready var camera = $Camera2D
+@onready var camera = $Camera
 
 var health: int = 50
 var max_health: int = 50
 
 func _ready():
-	$Camera.enabled = false
 	# Make camera follow player smoothly
 	camera.make_current()
 	camera.position_smoothing_enabled = true

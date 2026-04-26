@@ -8,6 +8,7 @@ size = Vector2(6, 27)
 
 [node name="Diver" type="CharacterBody2D" unique_id=1376913090]
 position = Vector2(11, 617)
+scale = Vector2(3.5, 3.5)
 script = ExtResource("1_xboaq")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=185999072]
@@ -21,4 +22,4 @@ debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1715608515]
 position = Vector2(2, 0)
-zoom = Vector2(3, 3)
+zoom = Vector2(0.75, 0.75)
