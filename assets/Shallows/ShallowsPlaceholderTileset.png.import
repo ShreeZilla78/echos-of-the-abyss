@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ikr6rr6qig7p"
-path="res://.godot/imported/DiverPlaceholderArt.png-ec9f887586afe63acfe66b8f76882b69.ctex"
+uid="uid://c7xo0hir3crx3"
+path="res://.godot/imported/ShallowsPlaceholderTileset.png-e2e837877c4424a9d0457777f8c6aa96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/DiverPlaceholderArt.png"
-dest_files=["res://.godot/imported/DiverPlaceholderArt.png-ec9f887586afe63acfe66b8f76882b69.ctex"]
+source_file="res://assets/Shallows/ShallowsPlaceholderTileset.png"
+dest_files=["res://.godot/imported/ShallowsPlaceholderTileset.png-e2e837877c4424a9d0457777f8c6aa96.ctex"]
 
 [params]
 

@@ -2,6 +2,7 @@
 class_name Battle
 extends Node
 
+@warning_ignore("shadowed_global_identifier")
 var DeckManager = preload("res://scripts/DeckManager.gd")
 
 # Player stats

@@ -23,7 +23,7 @@ func _ready():
 	camera.limit_right = 1532
 	camera.limit_bottom = 1023
 
-func _physics_process(delta):	
+func _physics_process(_delta):	
 	var direction = Vector2.ZERO
 
 	if Input.is_action_pressed("Sprint"):

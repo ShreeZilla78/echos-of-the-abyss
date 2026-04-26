@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://co8y1scvdd63"]
 
 [ext_resource type="Script" uid="uid://b6bi85hnicotn" path="res://scripts/Battle.gd" id="1_0448q"]
-[ext_resource type="Texture2D" uid="uid://dr0naddjuhkye" path="res://assets/lucid-origin_Dark_underwater_cavern_muted_teal_and_deep_blue_palette_flat_colors_with_minimal-0 (1).jpg" id="2_2rusm"]
+[ext_resource type="Texture2D" uid="uid://dr0naddjuhkye" path="res://assets/Battle/lucid-origin_Dark_underwater_cavern_muted_teal_and_deep_blue_palette_flat_colors_with_minimal-0 (1).jpg" id="2_0448q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1046u"]
 bg_color = Color(0.8035917, 0, 0.18138263, 1)
@@ -102,22 +102,22 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -333.0
-offset_top = -51.5
+offset_top = 2.5
 offset_right = 333.0
-offset_bottom = -0.5
+offset_bottom = 53.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_0448q")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1257315077]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1432404603]
 show_behind_parent = true
 clip_children = 2
 layout_direction = 4
-layout_mode = 1
-offset_top = -85.0
+layout_mode = 0
+offset_top = -88.0
 offset_right = 1344.0
-offset_bottom = 683.0
-texture = ExtResource("2_2rusm")
+offset_bottom = 680.0
+texture = ExtResource("2_0448q")
 stretch_mode = 3
