@@ -3,24 +3,40 @@
 [ext_resource type="Script" uid="uid://be3ww888ekms5" path="res://scripts/ZoneBase.gd" id="1_seuly"]
 [ext_resource type="PackedScene" uid="uid://dykn8egb30nh6" path="res://scenes/Diver.tscn" id="2_seuly"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_s6dw6"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_seuly"]
+
 [node name="SurfaceMap" type="Node2D" unique_id=412473697]
 position = Vector2(6, 7)
 script = ExtResource("1_seuly")
+metadata/_edit_vertical_guides_ = [1536.0]
+metadata/_edit_horizontal_guides_ = [864.0]
+
+[node name="DoNotDelete" type="TextureRect" parent="." unique_id=745072870]
+visible = false
+offset_left = -6.0
+offset_top = -7.0
+offset_right = 1530.0
+offset_bottom = 857.0
+texture = SubResource("PlaceholderTexture2D_s6dw6")
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1418749028]
 
 [node name="ExitZone" type="Area2D" parent="." unique_id=756785161]
-position = Vector2(555, 305)
+position = Vector2(766, 511.5)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ExitZone" unique_id=781420940]
 position = Vector2(59, -4)
 polygon = PackedVector2Array(-70, -49, -12, 16, -95, 47)
 
-[node name="Diver" parent="." unique_id=1376913090 instance=ExtResource("2_seuly")]
-position = Vector2(199, 475)
-scale = Vector2(2, 2)
+[node name="TextureRect" type="TextureRect" parent="ExitZone" unique_id=429116468]
+offset_left = -46.0
+offset_top = -48.0
+offset_right = 978.0
+offset_bottom = 976.0
+scale = Vector2(0.08998159, 0.09169565)
+texture = SubResource("PlaceholderTexture2D_seuly")
 
-[node name="Camera2D" type="Camera2D" parent="Diver" unique_id=1203141973]
-position = Vector2(-13.428589, -26.85714)
-scale = Vector2(0.28571424, 0.28571424)
-zoom = Vector2(0.75, 0.75)
+[node name="Diver" parent="." unique_id=1376913090 instance=ExtResource("2_seuly")]
+position = Vector2(215, 713)
