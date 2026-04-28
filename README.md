@@ -7,4 +7,5 @@ To Play test this game -
   1. Clone the repo
   2. Open the project in godot
   3. Click play
+     
 Preconditon: you need to have Godot Game engine installed
