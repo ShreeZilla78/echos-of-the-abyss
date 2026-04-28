@@ -8,8 +8,7 @@ var current_zone: int = 0
 var total_zones: int = 5
 
 # Player stats that carry between zones
-var player_health: int = 50
-var player_max_health: int = 50
+var player_starting_max_health: int = 50
 var player_deck: Array = []
 
 # Enemy info for battles
@@ -27,14 +26,21 @@ var zone_scenes = [
 func go_to_next_zone():
 	if current_zone < total_zones - 1:
 		current_zone += 1
-		get_tree().change_scene_to_file(zone_scenes[current_zone])
+		call_deferred("_change_to_zone", current_zone)
 	else:
-		# All zones complete — go to final boss
-		get_tree().change_scene_to_file("res://scenes/FinalBoss.tscn")
+		call_deferred("_go_to_final_boss")
+
+func _change_to_zone(zone_index):
+	get_tree().change_scene_to_file(zone_scenes[zone_index])
+
+func _go_to_final_boss():
+	get_tree().change_scene_to_file("res://scenes/FinalBoss.tscn")
 
 func go_to_battle():
-	# Save player health before battle
-	get_tree().change_scene_to_file("res://Battle.tscn")
+	call_deferred("_change_to_battle")
+	
+func _change_to_battle():
+	get_tree().change_scene_to_file("res://scenes/Battle.tscn")
 
 func get_atmosphere_color() -> Color:
 	# Returns a color based on current depth
@@ -49,7 +55,7 @@ func get_atmosphere_color() -> Color:
 		
 func reset_game():
 	current_zone = 0
-	player_health = player_max_health
+	PlayerStats.max_health = player_starting_max_health
 	player_deck.clear()
 	get_tree().change_scene_to_file(zone_scenes[current_zone])
 

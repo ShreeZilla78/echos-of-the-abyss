@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="Echos of the Abyss"
-run/main_scene="uid://co8y1scvdd63"
+run/main_scene="res://scenes/SurfaceMap.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 MapManager="*uid://drd4baxqohqyl"
+PlayerStats="*uid://c3bpd530pr3kb"
+SurfaceMap="*uid://csq48yyamjltv"
 
 [display]
 

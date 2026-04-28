@@ -6,11 +6,11 @@ extends Node
 var DeckManager = preload("res://scripts/DeckManager.gd")
 
 # Player stats
-var player_max_health: int = 50
-var player_max_air: int = 3
+var player_max_health: int = PlayerStats.max_health
+var player_max_air: int = PlayerStats.max_air
 var player_health: int
 var player_air: int
-var player_block: int = 0
+var player_block: int = PlayerStats.block
 
 # Enemy stats
 var enemy_health: int = 30
@@ -35,8 +35,8 @@ var battle_ended: bool = false
 @onready var event_label = $UI/EventLabel
 
 func _ready():
-	player_health = player_max_health
-	player_air = player_max_air
+	player_health = PlayerStats.max_health
+	player_air = PlayerStats.max_air
 	# Set up the progress bars max values
 	health_label.text = "Health:" + str(player_health) + "/" + str(player_max_health)
 	health_bar.max_value = player_max_health
@@ -165,14 +165,20 @@ func check_battle_end():
 	if enemy_health <= 0:
 		battle_ended = true
 		print("Victory! The creature retreats into the abyss...")
-		MapManager.player_health = player_health
 		end_turn_button.disabled = true
 		get_tree().change_scene_to_file("res://scenes/WinScreen.tscn")
+		
+		PlayerStats.health = player_health
+		PlayerStats.block = player_block
+		
 	elif player_health <= 0:
 		battle_ended = true
 		print("The abyss claims another soul...")
 		end_turn_button.disabled = true
 		get_tree().change_scene_to_file("res://scenes/LoseScreen.tscn")
+		
+		PlayerStats.health = player_health
+		PlayerStats.block = player_block
 
 func flash_screen(color: Color):
 	# Create a colored overlay that fades out

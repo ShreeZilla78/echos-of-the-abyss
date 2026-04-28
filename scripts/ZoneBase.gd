@@ -8,7 +8,6 @@ func _ready():
 	var atmosphere = MapManager.get_atmosphere_color()
 	RenderingServer.set_default_clear_color(atmosphere)
 	# Restore player health from MapManager
-	$Diver.health = MapManager.player_health
 	$Diver.camera.limit_right = 1536
 	$Diver.camera.limit_bottom = 864
 	# Connect exit zone
@@ -16,7 +15,5 @@ func _ready():
 
 func on_player_reached_exit(body):
 	if body is Player:
-		# Save player health before leaving
-		MapManager.player_health = $Diver.health
 		print("Zone complete! Diving deeper...")
 		MapManager.go_to_next_zone()

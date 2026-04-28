@@ -2,15 +2,23 @@
 class_name Player
 extends CharacterBody2D
 
+# removing the ability to sprint for now, can easily change later
+@export var sprint_enabled: bool = false
+
 # How fast the diver moves
-@export var move_speed: int = 200
+@export var base_speed: int = 200
 # Pixel art needs this to look crisp
 @export var pixel_size: int = 2
 
-@onready var camera = $Camera
+@export var sprint_bonus: int = 75
 
-var health: int = 50
-var max_health: int = 50
+@export var max_stamina: float = 2.0   # 2 seconds of sprint
+var stamina: float = 2.0
+
+@export var stamina_recovery_rate: float = 0.5  # seconds recovered per second
+@export var stamina_drain_rate: float = 1.0     # drains 1 per second while sprinting
+
+@onready var camera = $Camera
 
 func _ready():
 	# Make camera follow player smoothly
@@ -23,12 +31,19 @@ func _ready():
 	camera.limit_right = 1532
 	camera.limit_bottom = 1023
 
-func _physics_process(_delta):	
+func _physics_process(delta):	
 	var direction = Vector2.ZERO
+	var current_speed = base_speed
 
-	if Input.is_action_pressed("Sprint"):
-		move_speed += 75
-		
+	if sprint_enabled:
+		if Input.is_action_pressed("Sprint") and stamina > 0:
+			stamina -= stamina_drain_rate * delta
+			current_speed += sprint_bonus
+		else:
+			stamina += stamina_recovery_rate * delta
+			
+		stamina = clamp(stamina, 0, max_stamina)
+	
 	if Input.is_action_pressed("ui_right"):
 		direction.x += 1
 	if Input.is_action_pressed("ui_left"):
@@ -43,11 +58,9 @@ func _physics_process(_delta):
 		direction = direction.normalized()
 	
 	# Apply movement
-	velocity = direction * move_speed
+	velocity = direction * current_speed
 	move_and_slide()
 	
-	move_speed = 200
-
 	# Flip sprite based on direction
 	if direction.x > 0:
 		if direction.y > 0:
