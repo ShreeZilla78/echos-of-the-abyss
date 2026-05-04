@@ -10,4 +10,8 @@ func _ready():
 	continue_button.pressed.connect(continue_game)
 
 func continue_game():
-	get_tree().change_scene_to_file("res://scenes/world_map.tscn")
+	# This file does not exist, replace with MapManager.return_to_last_rest() when completed
+	#get_tree().change_scene_to_file("res://scenes/world_map.tscn")
+	PlayerStats.health = PlayerStats.max_health
+	
+	MapManager.return_to_map()

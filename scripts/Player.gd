@@ -30,6 +30,13 @@ func _ready():
 	camera.limit_top = 0
 	camera.limit_right = 1532
 	camera.limit_bottom = 1023
+	
+	if MapManager.last_checkpoint_position != Vector2.ZERO:
+		go_to_position(MapManager.last_checkpoint_position)
+		
+	if MapManager.current_enemy_id in MapManager.defeated_enemies:
+		go_to_position(MapManager.battle_position_save)
+		MapManager.battle_position_save = Vector2.ZERO
 
 func _physics_process(delta):	
 	var direction = Vector2.ZERO
@@ -91,3 +98,6 @@ func _physics_process(delta):
 			$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/north-west.png")
 		else:
 			$Sprite.texture = load("res://assets/AdvancedDiverPlaceholderArt/north.png")
+
+func go_to_position(pos: Vector2 = Vector2.ZERO):
+	global_position = pos

@@ -8,8 +8,8 @@ var DeckManager = preload("res://scripts/DeckManager.gd")
 # Player stats
 var player_max_health: int = PlayerStats.max_health
 var player_max_air: int = PlayerStats.max_air
-var player_health: int
-var player_air: int
+var player_health: int = PlayerStats.health
+var player_air: int = PlayerStats.max_air
 var player_block: int = PlayerStats.block
 
 # Enemy stats
@@ -35,8 +35,6 @@ var battle_ended: bool = false
 @onready var event_label = $UI/EventLabel
 
 func _ready():
-	player_health = PlayerStats.max_health
-	player_air = PlayerStats.max_air
 	# Set up the progress bars max values
 	health_label.text = "Health:" + str(player_health) + "/" + str(player_max_health)
 	health_bar.max_value = player_max_health
@@ -166,6 +164,7 @@ func check_battle_end():
 		battle_ended = true
 		print("Victory! The creature retreats into the abyss...")
 		end_turn_button.disabled = true
+		
 		get_tree().change_scene_to_file("res://scenes/WinScreen.tscn")
 		
 		PlayerStats.health = player_health
@@ -175,6 +174,7 @@ func check_battle_end():
 		battle_ended = true
 		print("The abyss claims another soul...")
 		end_turn_button.disabled = true
+		
 		get_tree().change_scene_to_file("res://scenes/LoseScreen.tscn")
 		
 		PlayerStats.health = player_health

@@ -3,10 +3,8 @@
 [ext_resource type="Script" uid="uid://1h4y4fo6vbs5" path="res://scripts/Shallows.gd" id="1_kyqyn"]
 [ext_resource type="PackedScene" uid="uid://dykn8egb30nh6" path="res://scenes/Diver.tscn" id="2_kyqyn"]
 [ext_resource type="Texture2D" uid="uid://by6104ydxvjyf" path="res://assets/Shallows/TestMap.png" id="2_x07db"]
-[ext_resource type="Script" uid="uid://cv141lcr7my0x" path="res://scripts/Enemy.gd" id="4_f3kgu"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3kgu"]
-height = 50.0
+[ext_resource type="PackedScene" uid="uid://bsbpq6k5ik0mi" path="res://scenes/BasicEnemy.tscn" id="5_t6lov"]
+[ext_resource type="PackedScene" uid="uid://bmr5mkyabair6" path="res://scenes/Checkpoint.tscn" id="6_414vw"]
 
 [node name="Shallows" type="Node2D" unique_id=245920443]
 position = Vector2(121, 187)
@@ -19,7 +17,7 @@ offset_right = 1415.0
 offset_bottom = 837.0
 texture = ExtResource("2_x07db")
 
-[node name="Diver" parent="." unique_id=1376913090 instance=ExtResource("2_kyqyn")]
+[node name="Diver" parent="." unique_id=1376913090 groups=["Player"] instance=ExtResource("2_kyqyn")]
 position = Vector2(247.00003, 533)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1896764095]
@@ -40,12 +38,13 @@ text = "Health"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BasicEnemy" type="Area2D" parent="." unique_id=623145918]
-position = Vector2(407, 525)
-scale = Vector2(3, 3)
-script = ExtResource("4_f3kgu")
+[node name="Checkpoint" parent="." unique_id=1991625994 instance=ExtResource("6_414vw")]
+position = Vector2(247, 533)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BasicEnemy" unique_id=1388491833]
-position = Vector2(72.00001, -37.333336)
-shape = SubResource("CapsuleShape2D_f3kgu")
-debug_color = Color(0.3372549, 0.5254902, 0.88235295, 0.9254902)
+[node name="BasicEnemy" parent="." unique_id=1678589214 instance=ExtResource("5_t6lov")]
+position = Vector2(631, 423)
+enemy_id = "enemy1"
+
+[node name="BasicEnemy2" parent="." unique_id=1880773976 instance=ExtResource("5_t6lov")]
+position = Vector2(1002, 169)
+enemy_id = "enemy2"

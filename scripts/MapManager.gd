@@ -13,6 +13,13 @@ var player_deck: Array = []
 
 # Enemy info for battles
 var current_enemy: String = "basic"
+var current_enemy_id: String
+var defeated_enemies: Array = []
+
+var last_checkpoint_position: Vector2 = Vector2.ZERO
+var battle_position_save: Vector2 = Vector2.ZERO
+
+var battle_ended: bool = false
 
 # Zone scene paths in order
 var zone_scenes = [
