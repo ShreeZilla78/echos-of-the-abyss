@@ -1,18 +1,50 @@
 [gd_scene format=3 uid="uid://dbunkv62nodaa"]
 
-[ext_resource type="Texture2D" uid="uid://by6104ydxvjyf" path="res://assets/TestMap.png" id="1_x07db"]
+[ext_resource type="Script" uid="uid://1h4y4fo6vbs5" path="res://scripts/Shallows.gd" id="1_kyqyn"]
 [ext_resource type="PackedScene" uid="uid://dykn8egb30nh6" path="res://scenes/Diver.tscn" id="2_kyqyn"]
+[ext_resource type="Texture2D" uid="uid://by6104ydxvjyf" path="res://assets/Shallows/TestMap.png" id="2_x07db"]
+[ext_resource type="PackedScene" uid="uid://bsbpq6k5ik0mi" path="res://scenes/BasicEnemy.tscn" id="5_t6lov"]
+[ext_resource type="PackedScene" uid="uid://bmr5mkyabair6" path="res://scenes/Checkpoint.tscn" id="6_414vw"]
 
 [node name="Shallows" type="Node2D" unique_id=245920443]
 position = Vector2(121, 187)
+script = ExtResource("1_kyqyn")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1215530511]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1344411512]
 offset_left = -121.0
 offset_top = -187.0
 offset_right = 1415.0
 offset_bottom = 837.0
-texture = ExtResource("1_x07db")
+texture = ExtResource("2_x07db")
 
-[node name="Diver" parent="." unique_id=1376913090 instance=ExtResource("2_kyqyn")]
-position = Vector2(694.00006, 339.00003)
-scale = Vector2(3.5, 3.5)
+[node name="Diver" parent="." unique_id=1376913090 groups=["Player"] instance=ExtResource("2_kyqyn")]
+position = Vector2(247.00003, 533)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1896764095]
+
+[node name="HealthBar" type="ProgressBar" parent="UI" unique_id=1177497293]
+offset_left = 100.0
+offset_top = 35.0
+offset_right = 288.0
+offset_bottom = 62.0
+max_value = 50.0
+
+[node name="HealthLabel" type="Label" parent="UI" unique_id=654380648]
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 111.0
+offset_bottom = 68.0
+text = "Health"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Checkpoint" parent="." unique_id=1991625994 instance=ExtResource("6_414vw")]
+position = Vector2(247, 533)
+
+[node name="BasicEnemy" parent="." unique_id=1678589214 instance=ExtResource("5_t6lov")]
+position = Vector2(631, 423)
+enemy_id = "enemy1"
+
+[node name="BasicEnemy2" parent="." unique_id=1880773976 instance=ExtResource("5_t6lov")]
+position = Vector2(1002, 169)
+enemy_id = "enemy2"

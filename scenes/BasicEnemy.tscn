@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bsbpq6k5ik0mi"]
+
+[ext_resource type="Script" uid="uid://cv141lcr7my0x" path="res://scripts/Enemy.gd" id="1_84j8r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3kgu"]
+height = 50.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_84j8r"]
+size = Vector2(10, 50)
+
+[node name="BasicEnemy" type="Area2D" unique_id=1678589214]
+scale = Vector2(3, 3)
+script = ExtResource("1_84j8r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=352867091]
+shape = SubResource("CapsuleShape2D_f3kgu")
+debug_color = Color(0.3372549, 0.5254902, 0.88235295, 0.9254902)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1416612563]
+offset_left = -10.0
+offset_top = -24.999996
+offset_right = 21.484568
+offset_bottom = 27.467796
+scale = Vector2(0.6564063, 0.96247995)
+texture = SubResource("PlaceholderTexture2D_84j8r")

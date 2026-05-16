@@ -10,4 +10,5 @@ func _ready():
 	continue_button.pressed.connect(continue_game)
 
 func continue_game():
+	MapManager.defeated_enemies.append(MapManager.current_enemy_id)
 	MapManager.return_to_map()

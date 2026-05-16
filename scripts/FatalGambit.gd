@@ -9,8 +9,6 @@ func _init():
 	damage = 0
 	block = 0
 	heal = 0
-	card_image = preload("res://assets/LastMine.png") # this adds the image to the card, 
-	#you can replace it with any image you want in the future
 
 func on_play(battle):
 	#Makes it wait for the white flash

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by6104ydxvjyf"
-path="res://.godot/imported/TestMap.png-7a0a023c8beb7426e55588e948fb3986.ctex"
+uid="uid://dr0naddjuhkye"
+path="res://.godot/imported/lucid-origin_Dark_underwater_cavern_muted_teal_and_deep_blue_palette_flat_colors_with_minimal-0 (1).jpg-520d95ab80c7cb59e208e07857387843.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/TestMap.png"
-dest_files=["res://.godot/imported/TestMap.png-7a0a023c8beb7426e55588e948fb3986.ctex"]
+source_file="res://assets/Battle/lucid-origin_Dark_underwater_cavern_muted_teal_and_deep_blue_palette_flat_colors_with_minimal-0 (1).jpg"
+dest_files=["res://.godot/imported/lucid-origin_Dark_underwater_cavern_muted_teal_and_deep_blue_palette_flat_colors_with_minimal-0 (1).jpg-520d95ab80c7cb59e208e07857387843.ctex"]
 
 [params]
 
