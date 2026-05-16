@@ -7,6 +7,11 @@
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_seuly"]
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_seuly"]
+
+[sub_resource type="TileSet" id="TileSet_s6dw6"]
+sources/0 = SubResource("TileSetScenesCollectionSource_seuly")
+
 [node name="SurfaceMap" type="Node2D" unique_id=412473697]
 position = Vector2(6, 7)
 script = ExtResource("1_seuly")
@@ -40,3 +45,6 @@ texture = SubResource("PlaceholderTexture2D_seuly")
 
 [node name="Diver" parent="." unique_id=1376913090 instance=ExtResource("2_seuly")]
 position = Vector2(215, 713)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1501654000]
+tile_set = SubResource("TileSet_s6dw6")
