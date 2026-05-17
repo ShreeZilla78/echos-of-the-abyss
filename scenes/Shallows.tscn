@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dbunkv62nodaa"]
 
-[ext_resource type="Script" uid="uid://1h4y4fo6vbs5" path="res://scripts/Shallows.gd" id="1_kyqyn"]
+[ext_resource type="Script" path="res://scripts/Shallows.gd" id="1_kyqyn"]
 [ext_resource type="PackedScene" uid="uid://dykn8egb30nh6" path="res://scenes/Diver.tscn" id="2_kyqyn"]
 [ext_resource type="Texture2D" uid="uid://by6104ydxvjyf" path="res://assets/Shallows/TestMap.png" id="2_x07db"]
-[ext_resource type="PackedScene" uid="uid://bsbpq6k5ik0mi" path="res://scenes/BasicEnemy.tscn" id="5_t6lov"]
-[ext_resource type="PackedScene" uid="uid://bmr5mkyabair6" path="res://scenes/Checkpoint.tscn" id="6_414vw"]
+[ext_resource type="PackedScene" path="res://scenes/BasicEnemy.tscn" id="5_t6lov"]
+[ext_resource type="PackedScene" path="res://scenes/Checkpoint.tscn" id="6_414vw"]
 
 [node name="Shallows" type="Node2D" unique_id=245920443]
 position = Vector2(121, 187)
@@ -43,8 +43,6 @@ position = Vector2(247, 533)
 
 [node name="BasicEnemy" parent="." unique_id=1678589214 instance=ExtResource("5_t6lov")]
 position = Vector2(631, 423)
-enemy_id = "enemy1"
 
 [node name="BasicEnemy2" parent="." unique_id=1880773976 instance=ExtResource("5_t6lov")]
 position = Vector2(1002, 169)
-enemy_id = "enemy2"

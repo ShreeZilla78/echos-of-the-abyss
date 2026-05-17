@@ -8,7 +8,7 @@ height = 50.0
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_84j8r"]
 size = Vector2(10, 50)
 
-[node name="BasicEnemy" type="Area2D" unique_id=1678589214]
+[node name="BasicEnemy" type="CharacterBody2D" unique_id=1678589214]
 scale = Vector2(3, 3)
 script = ExtResource("1_84j8r")
 

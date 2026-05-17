@@ -21,6 +21,7 @@ var stamina: float = 2.0
 @onready var camera = $Camera
 
 func _ready():
+	add_to_group("player")
 	# Make camera follow player smoothly
 	camera.make_current()
 	camera.position_smoothing_enabled = true

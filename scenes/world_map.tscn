@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dmwyduq2ct71q"]
+
+[ext_resource type="Texture2D" path="res://assets/TestMap.png" id="1_qqero"]
+[ext_resource type="PackedScene" uid="uid://dykn8egb30nh6" path="res://scenes/Diver.tscn" id="1_r63r8"]
+
+[sub_resource type="TileSet" id="TileSet_qqero"]
+
+[node name="WorldMap" type="Node2D" unique_id=245920443]
+position = Vector2(121, 187)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1215530511]
+offset_left = -121.0
+offset_top = -187.0
+offset_right = 1415.0
+offset_bottom = 837.0
+texture = ExtResource("1_qqero")
+
+[node name="Diver" parent="." unique_id=1376913090 instance=ExtResource("1_r63r8")]
+position = Vector2(148.00006, 392.00003)
+
+[node name="Camera2D" type="Camera2D" parent="Diver" unique_id=1789394957]
+position = Vector2(-13.428589, -26.85714)
+scale = Vector2(0.28571424, 0.28571424)
+zoom = Vector2(0.75, 0.75)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=259911745]
+tile_set = SubResource("TileSet_qqero")
