@@ -3,6 +3,27 @@
 [ext_resource type="Script" path="res://scripts/Shallows.gd" id="1_kyqyn"]
 [ext_resource type="PackedScene" uid="uid://dykn8egb30nh6" path="res://scenes/Diver.tscn" id="2_kyqyn"]
 [ext_resource type="Texture2D" uid="uid://by6104ydxvjyf" path="res://assets/Shallows/TestMap.png" id="2_x07db"]
+[ext_resource type="PackedScene" uid="uid://bsbpq6k5ik0mi" path="res://scenes/BasicEnemy.tscn" id="5_t6lov"]
+[ext_resource type="PackedScene" uid="uid://bmr5mkyabair6" path="res://scenes/Checkpoint.tscn" id="6_414vw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6lov"]
+size = Vector2(1649.4989, 60)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_t6lov"]
+a = Vector2(-589, 268)
+b = Vector2(-209, 521)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7om78"]
+a = Vector2(136.4023, 555.5208)
+b = Vector2(25.644745, 173.75945)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_414vw"]
+a = Vector2(615.15485, 264.21484)
+b = Vector2(-126.24482, 126.76846)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dlchw"]
+a = Vector2(725, 827)
+b = Vector2(962, 708)
 [ext_resource type="PackedScene" path="res://scenes/BasicEnemy.tscn" id="5_t6lov"]
 [ext_resource type="PackedScene" path="res://scenes/Checkpoint.tscn" id="6_414vw"]
 
@@ -46,3 +67,64 @@ position = Vector2(631, 423)
 
 [node name="BasicEnemy2" parent="." unique_id=1880773976 instance=ExtResource("5_t6lov")]
 position = Vector2(1002, 169)
+enemy_id = "enemy2"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=744803171]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=939487486]
+position = Vector2(644.5, -219)
+shape = SubResource("RectangleShape2D_t6lov")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1036529206]
+position = Vector2(659, 864)
+shape = SubResource("RectangleShape2D_t6lov")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1025339252]
+position = Vector2(1447, 162)
+rotation = 1.5631466
+shape = SubResource("RectangleShape2D_t6lov")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1673307171]
+position = Vector2(1329.9999, 141)
+rotation = 1.5631466
+shape = SubResource("RectangleShape2D_t6lov")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1266747740]
+position = Vector2(-156.00012, 224)
+rotation = 1.5631466
+shape = SubResource("RectangleShape2D_t6lov")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="StaticBody2D" unique_id=554162501]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D2" unique_id=180314407]
+position = Vector2(599, 307)
+shape = SubResource("SegmentShape2D_t6lov")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D2" unique_id=1414417853]
+position = Vector2(1232, -451)
+shape = SubResource("SegmentShape2D_t6lov")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="StaticBody2D" unique_id=650600013]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D3" unique_id=728469454]
+rotation = 0.2320351
+shape = SubResource("SegmentShape2D_7om78")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="StaticBody2D" unique_id=1918757013]
+rotation = -0.68254745
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D4" unique_id=788447392]
+shape = SubResource("SegmentShape2D_414vw")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="StaticBody2D" unique_id=1724112197]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D5" unique_id=659138995]
+shape = SubResource("SegmentShape2D_dlchw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D5" unique_id=1780187304]
+position = Vector2(232, -117)
+shape = SubResource("SegmentShape2D_dlchw")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="StaticBody2D" unique_id=1899173665]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D6" unique_id=461342136]

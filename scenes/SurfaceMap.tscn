@@ -374,6 +374,9 @@ sources/1 = SubResource("TileSetAtlasSource_x0s0u")
 [sub_resource type="TileSet" id="TileSet_s6dw6"]
 sources/0 = SubResource("TileSetScenesCollectionSource_seuly")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6dw6"]
+size = Vector2(1649.4989, 60)
+
 [node name="SurfaceMap" type="Node2D" unique_id=412473697]
 position = Vector2(6, 7)
 script = ExtResource("1_seuly")
@@ -414,3 +417,23 @@ position = Vector2(215, 713)
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1501654000]
 scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_s6dw6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2046456429]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1427824489]
+position = Vector2(774.5001, -46)
+shape = SubResource("RectangleShape2D_s6dw6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=724672586]
+position = Vector2(785, 870)
+shape = SubResource("RectangleShape2D_s6dw6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=981608786]
+position = Vector2(1577.0001, 335)
+rotation = 1.5631466
+shape = SubResource("RectangleShape2D_s6dw6")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=703141079]
+position = Vector2(-26, 397)
+rotation = 1.5631466
+shape = SubResource("RectangleShape2D_s6dw6")
