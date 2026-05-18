@@ -167,10 +167,16 @@ func check_battle_end():
 		
 		PlayerStats.health = player_health
 		PlayerStats.block = player_block 
+<<<<<<< HEAD
 		
 		MapManager.defeated_enemies.append(MapManager.current_enemy_id)
 		
 		get_tree().change_scene_to_file("res://scenes/WinScreen.tscn")
+=======
+		get_tree().change_scene_to_file("res://scenes/WinScreen.tscn")
+		
+		
+>>>>>>> 1bc5de2526aa79e0cd7243225b47335cc3fe2db0
 		
 	elif player_health <= 0:
 		battle_ended = true
@@ -180,6 +186,11 @@ func check_battle_end():
 		PlayerStats.health = player_health
 		PlayerStats.block = player_block
 		get_tree().change_scene_to_file("res://scenes/LoseScreen.tscn")
+<<<<<<< HEAD
+=======
+		
+		
+>>>>>>> 1bc5de2526aa79e0cd7243225b47335cc3fe2db0
 
 func flash_screen(color: Color):
 	# Create a colored overlay that fades out
