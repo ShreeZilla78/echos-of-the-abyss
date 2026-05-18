@@ -165,20 +165,21 @@ func check_battle_end():
 		print("Victory! The creature retreats into the abyss...")
 		end_turn_button.disabled = true
 		
-		get_tree().change_scene_to_file("res://scenes/WinScreen.tscn")
-		
 		PlayerStats.health = player_health
-		PlayerStats.block = player_block
+		PlayerStats.block = player_block 
+		
+		MapManager.defeated_enemies.append(MapManager.current_enemy_id)
+		
+		get_tree().change_scene_to_file("res://scenes/WinScreen.tscn")
 		
 	elif player_health <= 0:
 		battle_ended = true
 		print("The abyss claims another soul...")
 		end_turn_button.disabled = true
 		
-		get_tree().change_scene_to_file("res://scenes/LoseScreen.tscn")
-		
 		PlayerStats.health = player_health
 		PlayerStats.block = player_block
+		get_tree().change_scene_to_file("res://scenes/LoseScreen.tscn")
 
 func flash_screen(color: Color):
 	# Create a colored overlay that fades out

@@ -43,8 +43,10 @@ position = Vector2(247, 533)
 
 [node name="BasicEnemy" parent="." unique_id=1678589214 instance=ExtResource("5_t6lov")]
 position = Vector2(631, 423)
-enemy_id = "enemy1"
+enemy_id = "001"
+move_speed = 100.0
+attack_range = 50.0
 
 [node name="BasicEnemy2" parent="." unique_id=1880773976 instance=ExtResource("5_t6lov")]
 position = Vector2(1002, 169)
-enemy_id = "enemy2"
+enemy_id = "002"
