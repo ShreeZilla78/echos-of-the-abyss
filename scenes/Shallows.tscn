@@ -1,31 +1,10 @@
 [gd_scene format=3 uid="uid://dbunkv62nodaa"]
 
-[ext_resource type="Script" path="res://scripts/Shallows.gd" id="1_kyqyn"]
+[ext_resource type="Script" uid="uid://1h4y4fo6vbs5" path="res://scripts/Shallows.gd" id="1_kyqyn"]
 [ext_resource type="PackedScene" uid="uid://dykn8egb30nh6" path="res://scenes/Diver.tscn" id="2_kyqyn"]
 [ext_resource type="Texture2D" uid="uid://by6104ydxvjyf" path="res://assets/Shallows/TestMap.png" id="2_x07db"]
 [ext_resource type="PackedScene" uid="uid://bsbpq6k5ik0mi" path="res://scenes/BasicEnemy.tscn" id="5_t6lov"]
 [ext_resource type="PackedScene" uid="uid://bmr5mkyabair6" path="res://scenes/Checkpoint.tscn" id="6_414vw"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6lov"]
-size = Vector2(1649.4989, 60)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_t6lov"]
-a = Vector2(-589, 268)
-b = Vector2(-209, 521)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_7om78"]
-a = Vector2(136.4023, 555.5208)
-b = Vector2(25.644745, 173.75945)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_414vw"]
-a = Vector2(615.15485, 264.21484)
-b = Vector2(-126.24482, 126.76846)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_dlchw"]
-a = Vector2(725, 827)
-b = Vector2(962, 708)
-[ext_resource type="PackedScene" path="res://scenes/BasicEnemy.tscn" id="5_t6lov"]
-[ext_resource type="PackedScene" path="res://scenes/Checkpoint.tscn" id="6_414vw"]
 
 [node name="Shallows" type="Node2D" unique_id=245920443]
 position = Vector2(121, 187)
@@ -64,8 +43,10 @@ position = Vector2(247, 533)
 
 [node name="BasicEnemy" parent="." unique_id=1678589214 instance=ExtResource("5_t6lov")]
 position = Vector2(631, 423)
-enemy_id = "enemy1"
+enemy_id = "001"
+move_speed = 100.0
+attack_range = 50.0
 
 [node name="BasicEnemy2" parent="." unique_id=1880773976 instance=ExtResource("5_t6lov")]
 position = Vector2(1002, 169)
-enemy_id = "enemy2"
+enemy_id = "002"

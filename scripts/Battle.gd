@@ -101,7 +101,7 @@ func update_hand_display():
 	for child in hand_container.get_children():
 		child.queue_free()
 	for card in deck.hand:
-		var card_ui = preload("res://CardUI.tscn").instantiate()
+		var card_ui = preload("res://scenes/CardUI.tscn").instantiate()
 		card_ui.setup(card)
 		card_ui.card_clicked.connect(try_play_card)
 		hand_container.add_child(card_ui)
@@ -167,16 +167,10 @@ func check_battle_end():
 		
 		PlayerStats.health = player_health
 		PlayerStats.block = player_block 
-<<<<<<< HEAD
 		
 		MapManager.defeated_enemies.append(MapManager.current_enemy_id)
 		
 		get_tree().change_scene_to_file("res://scenes/WinScreen.tscn")
-=======
-		get_tree().change_scene_to_file("res://scenes/WinScreen.tscn")
-		
-		
->>>>>>> 1bc5de2526aa79e0cd7243225b47335cc3fe2db0
 		
 	elif player_health <= 0:
 		battle_ended = true
@@ -186,11 +180,6 @@ func check_battle_end():
 		PlayerStats.health = player_health
 		PlayerStats.block = player_block
 		get_tree().change_scene_to_file("res://scenes/LoseScreen.tscn")
-<<<<<<< HEAD
-=======
-		
-		
->>>>>>> 1bc5de2526aa79e0cd7243225b47335cc3fe2db0
 
 func flash_screen(color: Color):
 	# Create a colored overlay that fades out

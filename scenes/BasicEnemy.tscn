@@ -5,12 +5,9 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_84j8r"]
 size = Vector2(10, 50)
 
-<<<<<<< HEAD
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3kgu"]
 height = 50.0
 
-=======
->>>>>>> 1bc5de2526aa79e0cd7243225b47335cc3fe2db0
 [node name="BasicEnemy" type="CharacterBody2D" unique_id=1678589214]
 scale = Vector2(3, 3)
 script = ExtResource("1_84j8r")
