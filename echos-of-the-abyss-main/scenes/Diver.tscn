@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dykn8egb30nh6"]
+
+[ext_resource type="Script" uid="uid://d1p25itrm5u0y" path="res://scripts/Player.gd" id="1_xboaq"]
+[ext_resource type="Texture2D" uid="uid://24fbu7i2bo8u" path="res://assets/AdvancedDiverPlaceholderArt/east.png" id="2_xgvnv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xboaq"]
+size = Vector2(6, 27)
+
+[node name="Diver" type="CharacterBody2D" unique_id=1376913090]
+position = Vector2(11, 617)
+scale = Vector2(3.5, 3.5)
+script = ExtResource("1_xboaq")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=185999072]
+position = Vector2(4, 0)
+texture = ExtResource("2_xgvnv")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=737796759]
+position = Vector2(3, 2.5)
+shape = SubResource("RectangleShape2D_xboaq")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1715608515]
+position = Vector2(2, 0)
+zoom = Vector2(0.75, 0.75)
