@@ -4,11 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://dykn8egb30nh6" path="res://scenes/Diver.tscn" id="2_kyqyn"]
 [ext_resource type="Texture2D" uid="uid://dln37bc8g7agp" path="res://assets/Shallows/TestMap.png" id="2_x07db"]
 [ext_resource type="PackedScene" uid="uid://bsbpq6k5ik0mi" path="res://scenes/BasicEnemy.tscn" id="5_t6lov"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://cfbthdpbne2bb" path="res://assets/Shallows/ShallowsTilesSet (1).png" id="6_7om78"]
+=======
+[ext_resource type="Texture2D" uid="uid://cxdxjpa2ylvvc" path="res://assets/Shallows/ShallowsPlaceholderTileset.png" id="6_7om78"]
+>>>>>>> f7ead4da45db3deb5360efe2d8d721f9ded89aa0
 [ext_resource type="PackedScene" uid="uid://bmr5mkyabair6" path="res://scenes/Checkpoint.tscn" id="6_414vw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_414vw"]
 texture = ExtResource("6_7om78")
+<<<<<<< HEAD
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -30816,6 +30821,24 @@ texture = ExtResource("6_7om78")
 [sub_resource type="TileSet" id="TileSet_dlchw"]
 sources/0 = SubResource("TileSetAtlasSource_414vw")
 sources/1 = SubResource("TileSetAtlasSource_7om78")
+=======
+texture_region_size = Vector2i(27, 27)
+7:12/size_in_atlas = Vector2i(22, 10)
+7:12/0 = 0
+16:1/size_in_atlas = Vector2i(8, 4)
+16:1/0 = 0
+24:1/size_in_atlas = Vector2i(7, 4)
+24:1/0 = 0
+31:1/size_in_atlas = Vector2i(5, 4)
+31:1/0 = 0
+36:1/size_in_atlas = Vector2i(7, 4)
+36:1/0 = 0
+38:7/size_in_atlas = Vector2i(4, 6)
+38:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_dlchw"]
+sources/0 = SubResource("TileSetAtlasSource_414vw")
+>>>>>>> f7ead4da45db3deb5360efe2d8d721f9ded89aa0
 
 [node name="Shallows" type="Node2D" unique_id=245920443]
 position = Vector2(121, 187)
@@ -30864,3 +30887,8 @@ enemy_id = "001"
 [node name="BasicEnemy2" parent="." unique_id=1880773976 instance=ExtResource("5_t6lov")]
 position = Vector2(1002, 169)
 enemy_id = "002"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=813351293]
+visible = false
+tile_map_data = PackedByteArray(0, 0, 11, 0, 247, 255, 0, 0, 16, 0, 1, 0, 0, 0, 20, 0, 247, 255, 0, 0, 24, 0, 1, 0, 0, 0, 27, 0, 247, 255, 0, 0, 31, 0, 1, 0, 0, 0, 33, 0, 247, 255, 0, 0, 31, 0, 1, 0, 0, 0)
+tile_set = SubResource("TileSet_dlchw")
