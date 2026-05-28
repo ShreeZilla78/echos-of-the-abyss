@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dln37bc8g7agp"
-path="res://.godot/imported/TestMap.png-477e0ca41ae713ee9a2068078f495be4.ctex"
+uid="uid://l7o4eopkkpnt"
+path="res://.godot/imported/Shallows_tileset_placeholder.png-3ddb4c9e7d1361a79973d6cdd7828006.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Shallows/TestMap.png"
-dest_files=["res://.godot/imported/TestMap.png-477e0ca41ae713ee9a2068078f495be4.ctex"]
+source_file="res://assets/Shallows/Shallows_tileset_placeholder.png"
+dest_files=["res://.godot/imported/Shallows_tileset_placeholder.png-3ddb4c9e7d1361a79973d6cdd7828006.ctex"]
 
 [params]
 
