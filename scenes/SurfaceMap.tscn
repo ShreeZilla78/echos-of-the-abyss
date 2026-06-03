@@ -367,8 +367,6 @@ texture = ExtResource("2_s6dw6")
 [sub_resource type="TileSet" id="TileSet_vkbmq"]
 sources/1 = SubResource("TileSetAtlasSource_x0s0u")
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_seuly"]
-
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_seuly"]
 
 [sub_resource type="TileSet" id="TileSet_s6dw6"]
@@ -409,7 +407,6 @@ offset_top = -48.0
 offset_right = 978.0
 offset_bottom = 976.0
 scale = Vector2(0.08998159, 0.09169565)
-texture = SubResource("PlaceholderTexture2D_seuly")
 
 [node name="Diver" parent="." unique_id=1376913090 instance=ExtResource("2_seuly")]
 position = Vector2(215, 713)
