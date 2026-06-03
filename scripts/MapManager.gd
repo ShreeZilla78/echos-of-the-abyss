@@ -12,8 +12,8 @@ var player_starting_max_health: int = 50
 var player_deck: Array = []
 
 # Enemy info for battles
-var current_enemy: String = "basic"
-var current_enemy_id: String
+var current_enemy_type: Array = ["basic"]
+var current_enemy_ids: Array = []
 var defeated_enemies: Array = []
 var all_enemies: Array = []
 

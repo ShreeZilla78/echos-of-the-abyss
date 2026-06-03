@@ -113,7 +113,7 @@ func try_play_card(card: Card):
 		show_event_message("Not enough air!", 0.5)
 		return
 	player_air -= card.air_cost
-	deck.play_card(card, self)
+	deck.play_card(card)
 	update_ui()
 	update_hand_display()
 	check_battle_end()
