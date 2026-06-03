@@ -78,7 +78,10 @@ func add_starter_cards():
 		deck.draw_pile.append(card)
 	var fatal_gambit = FatalGambit.new()
 	deck.draw_pile.append(fatal_gambit)
-	deck.shuffle_draw_pile() # Add one Fatal Gambit to the deck
+	deck.shuffle_draw_pile()
+	var diver_bell = DiverBell.new()
+	deck.draw_pile.append(diver_bell)
+	# Add one Fatal Gambit to the deck
 
 func start_turn():
 	player_air = player_max_air
