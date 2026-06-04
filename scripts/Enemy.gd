@@ -18,6 +18,9 @@ var max_health = 50
 var health = 50
 var damage = 15
 
+@onready var sprite: TextureRect = $TextureRect
+var sprite_original_modulate: Color = Color.WHITE
+
 var player: CharacterBody2D = null
 var battle_triggered: bool = false
 
@@ -30,6 +33,8 @@ func _ready():
 	spawn_point = global_position
 	# Find the player node in the scene
 	player = get_tree().get_first_node_in_group("player")
+	# Remember the original sprite tint so the flash can return to it
+	sprite_original_modulate = sprite.modulate
 	
 func _physics_process(_delta):
 	if player == null or battle_triggered:
@@ -92,8 +97,16 @@ func return_to_spawn():
 func take_damage(damage_to_take: int = 0):
 	health -= damage_to_take
 	health = clampi(health, 0, max_health)
+	flash_white()
 			
 	if health == 0:		
 		MapManager.defeated_enemies.append(self)
 		MapManager.current_enemy_ids.erase(self)
 		queue_free()
+
+func flash_white():
+	sprite.modulate = Color(1, 1, 1, 1)
+	var tween = create_tween()
+	tween.tween_property(sprite, "modulate", sprite_original_modulate, 0.1)
+	await tween.finished
+
