@@ -11,14 +11,21 @@ var current_state: State = State.IDLE
 
 @export var move_speed: float = 60.0
 @export var detection_range: float = 200.0  # how close before chasing
-@export var attack_range: float = 30.0      # how close before attacking
+@export var attack_range: float = 100.0     # how close before attacking
 @export var spawn_point: Vector2            # where this enemy starts
+
+var max_health = 50
+var health = 50
+var damage = 15
+
+@onready var sprite: TextureRect = $TextureRect
+var sprite_original_modulate: Color = Color.WHITE
 
 var player: CharacterBody2D = null
 var battle_triggered: bool = false
 
 func _ready():
-	if enemy_id in MapManager.defeated_enemies:
+	if self in MapManager.defeated_enemies:
 		queue_free()
 		return
 	
@@ -26,7 +33,9 @@ func _ready():
 	spawn_point = global_position
 	# Find the player node in the scene
 	player = get_tree().get_first_node_in_group("player")
-
+	# Remember the original sprite tint so the flash can return to it
+	sprite_original_modulate = sprite.modulate
+	
 func _physics_process(_delta):
 	if player == null or battle_triggered:
 		return
@@ -44,6 +53,9 @@ func idle_behavior():
 		print("Enemy spotted the diver!")
 
 func chase_behavior():
+	if self not in MapManager.current_enemy_ids:
+			MapManager.current_enemy_ids.append(self)
+	
 	var distance_to_player = global_position.distance_to(player.global_position)
 	
 	# If player got away go back to idle
@@ -52,7 +64,7 @@ func chase_behavior():
 		return
 	
 	# If close enough attack
-	if distance_to_player < attack_range:
+	if distance_to_player <= attack_range:
 		current_state = State.ATTACK
 		return
 	
@@ -69,18 +81,32 @@ func chase_behavior():
 		#$Sprite2D.flip_h = true
 		pass
 		
-func _on_body_entered(body):
-	if body is Player and not battle_triggered:
-		battle_triggered = true
-		MapManager.battle_position_save = body.global_position
-		# Save which enemy was encountered so Battle knows who to fight
-		MapManager.current_enemy = enemy_type
-		MapManager.current_enemy_id = enemy_id
-		# Go to battle scene
-		MapManager.go_to_battle()
+func attack_behavior():
+	# Keep this the chase behaviour for now
+	chase_behavior()
+		
+func _on_body_entered(_body):
+	pass
 
 func return_to_spawn():
 	# Called when player escapes — enemy walks back to start
 	global_position = spawn_point
 	current_state = State.IDLE
 	battle_triggered = false
+
+func take_damage(damage_to_take: int = 0):
+	health -= damage_to_take
+	health = clampi(health, 0, max_health)
+	flash_white()
+			
+	if health == 0:		
+		MapManager.defeated_enemies.append(self)
+		MapManager.current_enemy_ids.erase(self)
+		queue_free()
+
+func flash_white():
+	sprite.modulate = Color(1, 1, 1, 1)
+	var tween = create_tween()
+	tween.tween_property(sprite, "modulate", sprite_original_modulate, 0.1)
+	await tween.finished
+

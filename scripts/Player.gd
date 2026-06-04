@@ -7,16 +7,22 @@ extends CharacterBody2D
 
 # How fast the diver moves
 @export var base_speed: int = 200
+
 # Pixel art needs this to look crisp
 @export var pixel_size: int = 2
 
-@export var sprint_bonus: int = 75
+var sprint_bonus: int = 75
 
-@export var max_stamina: float = 2.0   # 2 seconds of sprint
+var max_stamina: float = 2.0   # 2 seconds of sprint
 var stamina: float = 2.0
 
-@export var stamina_recovery_rate: float = 0.5  # seconds recovered per second
-@export var stamina_drain_rate: float = 1.0     # drains 1 per second while sprinting
+var stamina_recovery_rate: float = 0.5  # seconds recovered per second
+var stamina_drain_rate: float = 1.0     # drains 1 per second while sprinting
+
+@export var attack_range: float = 175.0
+
+var attack_delay: float = 0.0
+@export var attack_recovery_rate: float = 1.0  # delay recovered per second
 
 @onready var camera = $Camera
 
@@ -35,13 +41,20 @@ func _ready():
 	if MapManager.last_checkpoint_position != Vector2.ZERO:
 		go_to_position(MapManager.last_checkpoint_position)
 		
-	if MapManager.current_enemy_id in MapManager.defeated_enemies:
+	if MapManager.current_enemy_ids in MapManager.defeated_enemies:
 		go_to_position(MapManager.battle_position_save)
 		MapManager.battle_position_save = Vector2.ZERO
 
 func _physics_process(delta):	
 	var direction = Vector2.ZERO
 	var current_speed = base_speed
+	
+	if Input.is_action_just_pressed("Activate Card Slot 1"):
+		if attack_delay > 0.0:
+			attack_delay -= attack_recovery_rate
+		else:
+			attack()
+			attack_delay = 2.0
 
 	if sprint_enabled:
 		if Input.is_action_pressed("Sprint") and stamina > 0:
@@ -102,3 +115,29 @@ func _physics_process(delta):
 
 func go_to_position(pos: Vector2 = Vector2.ZERO):
 	global_position = pos
+	
+func attack():
+	for enemy in MapManager.current_enemy_ids:
+		if enemy in MapManager.defeated_enemies:
+			continue
+			
+		var distance_to_enemy = self.global_position.distance_to(enemy.global_position)
+		
+		if distance_to_enemy <= attack_range:
+			enemy.take_damage(PlayerStats.damage)
+			
+func increase_block(block: int = 0):
+	PlayerStats.block += block
+
+func take_damage(damage: int = 0):
+	PlayerStats.health -= damage
+	PlayerStats.health = clampi(PlayerStats.health, 0, PlayerStats.max_health)
+			
+	if PlayerStats.health == 0:		
+		go_to_position(MapManager.last_checkpoint_position)
+		
+		for enemy in MapManager.current_enemy_ids:
+			if enemy in MapManager.defeated_enemies:
+				continue
+			
+			enemy.return_to_spawn()

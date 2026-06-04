@@ -19,6 +19,5 @@ func _gui_input(event):
 			emit_signal("card_clicked", card_data)
 
 func _ready():
-	pass
 	# add this so the cards dont get too tiny
-	#custom_minimum_size = Vector2(120, 160)
+	custom_minimum_size = Vector2(120 * 0.8, 180 * 0.8)

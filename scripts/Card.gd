@@ -17,6 +17,6 @@ func on_play(battle):
 	battle.player_heal(self.heal)
 
 # This runs when the card hits the discard pile
-func on_discard(_battle):
+func on_discard():
 	# By default, do nothing. Override in specific cards if needed.
 	pass
