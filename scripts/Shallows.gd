@@ -7,6 +7,8 @@ var deck: DeckManager
 @onready var hand_container = $UI/HandContainer
 @onready var player = $Diver
 
+@export var cards_in_hand: int = 3
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#health_label.text = "Health:" + str(player_health) + "/" + str(player_max_health)
@@ -19,16 +21,18 @@ func _ready():
 	add_starter_cards()
 	
 func _process(_delta):
+	health_bar.value = PlayerStats.health
+
 	if Input.is_action_just_pressed("Activate Card Slot 1"):
-		try_play_card(deck.hand[0])
+		self.try_play_card(deck.hand[0])
 	elif Input.is_action_just_pressed("Activate Card Slot 2"):
-		try_play_card(deck.hand[1])
+		self.try_play_card(deck.hand[1])
 	elif Input.is_action_just_pressed("Activate Card Slot 3"):
-		try_play_card(deck.hand[2])
+		self.try_play_card(deck.hand[2])
 	elif Input.is_action_just_pressed("Activate Card Slot 4"):
-		try_play_card(deck.hand[3])
+		self.try_play_card(deck.hand[3])
 	elif Input.is_action_just_pressed("Activate Card Slot 5"):
-		try_play_card(deck.hand[4])
+		self.try_play_card(deck.hand[4])
 	
 func add_starter_cards():
 	for i in 5:
@@ -42,7 +46,7 @@ func add_starter_cards():
 		deck.draw_pile.append(fatal_gambit)
 		
 	deck.shuffle_draw_pile()
-	deck.draw_card(5)
+	deck.draw_card(cards_in_hand)
 	
 	for card in deck.hand:
 		var card_ui = preload("res://scenes/CardUI.tscn").instantiate()
@@ -66,7 +70,6 @@ func update_hand_display():
 
 func try_play_card(card: Card):	
 	deck.play_card(card, player)
-	deck.hand.erase(card)
 	deck.draw_card(1)
 	
 	#update_ui()

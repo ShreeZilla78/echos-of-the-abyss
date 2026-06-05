@@ -39,6 +39,7 @@ func on_play(player: Player):
 	else:
 		await Utility.flash_screen(Color.RED)
 		player.take_damage(PlayerStats.health)
+		enemy.heal(enemy.max_health)
 			
 		#await Utility.show_event_message("The Gambit fails... The abyss takes you.")
 		#Utility.player_health = 0

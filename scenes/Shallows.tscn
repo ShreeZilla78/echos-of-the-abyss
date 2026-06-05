@@ -20,6 +20,12 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_t6lov"]
+radius = 175.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7om78"]
+radius = 140.0
+
 [node name="Shallows" type="Node2D" unique_id=245920443]
 position = Vector2(121, 187)
 script = ExtResource("1_kyqyn")
@@ -31,17 +37,21 @@ offset_right = 1415.0
 offset_bottom = 837.0
 texture = ExtResource("2_x07db")
 
-[node name="Diver" parent="." unique_id=1376913090 groups=["Player"] instance=ExtResource("2_kyqyn")]
-position = Vector2(247.00003, 533)
-
 [node name="UI" type="CanvasLayer" parent="." unique_id=1896764095]
 
 [node name="HandContainer" type="HBoxContainer" parent="UI" unique_id=442111537]
 custom_minimum_size = Vector2(80, 80)
-offset_left = 630.0
-offset_top = 482.0
-offset_right = 830.0
-offset_bottom = 597.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -128.0
+offset_right = 100.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="HealthBar" type="ProgressBar" parent="UI" unique_id=1177497293]
 offset_left = 96.0
@@ -61,6 +71,9 @@ text = "Health"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Diver" parent="." unique_id=1376913090 groups=["Player"] instance=ExtResource("2_kyqyn")]
+position = Vector2(247.00003, 533)
+
 [node name="Checkpoint" parent="." unique_id=1991625994 instance=ExtResource("6_414vw")]
 position = Vector2(247, 533)
 
@@ -71,3 +84,16 @@ enemy_id = "001"
 [node name="BasicEnemy2" parent="." unique_id=1880773976 instance=ExtResource("5_t6lov")]
 position = Vector2(1002, 169)
 enemy_id = "002"
+
+[node name="AttackRanges" type="Area2D" parent="." unique_id=567988579]
+visible = false
+
+[node name="PlayerRange" type="CollisionShape2D" parent="AttackRanges" unique_id=1556436474]
+position = Vector2(255, 527)
+shape = SubResource("CircleShape2D_t6lov")
+debug_color = Color(0.4745098, 0.4745098, 0.90588236, 1)
+
+[node name="EnemyRange" type="CollisionShape2D" parent="AttackRanges" unique_id=1527738530]
+position = Vector2(639, 419)
+shape = SubResource("CircleShape2D_7om78")
+debug_color = Color(0.4745098, 0.4745098, 0.90588236, 1)

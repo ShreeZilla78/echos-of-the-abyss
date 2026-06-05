@@ -12,4 +12,3 @@ func _init():
 
 func on_play(player: Player):	
 	player.increase_block(self.block)
-	

@@ -10,6 +10,7 @@ size = Vector2(6, 27)
 position = Vector2(11, 617)
 scale = Vector2(3.5, 3.5)
 script = ExtResource("1_xboaq")
+base_speed = 250
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=185999072]
 position = Vector2(4, 0)

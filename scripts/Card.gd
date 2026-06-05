@@ -11,10 +11,8 @@ extends Resource
 @export var heal: int = 0
 @export var card_image: Texture2D = null
 
-func on_play(battle):
-	battle.apply_damage(self.damage)
-	battle.player_gain_block(self.block)
-	battle.player_heal(self.heal)
+func on_play(_player: Player):
+	pass
 
 # This runs when the card hits the discard pile
 func on_discard():

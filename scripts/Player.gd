@@ -48,13 +48,6 @@ func _ready():
 func _physics_process(delta):	
 	var direction = Vector2.ZERO
 	var current_speed = base_speed
-	
-	if Input.is_action_just_pressed("Activate Card Slot 1"):
-		if attack_delay > 0.0:
-			attack_delay -= attack_recovery_rate
-		else:
-			attack()
-			attack_delay = 2.0
 
 	if sprint_enabled:
 		if Input.is_action_pressed("Sprint") and stamina > 0:
@@ -131,13 +124,15 @@ func increase_block(block: int = 0):
 
 func take_damage(damage: int = 0):
 	PlayerStats.health -= damage
+	print(PlayerStats.health)
 	PlayerStats.health = clampi(PlayerStats.health, 0, PlayerStats.max_health)
 			
-	if PlayerStats.health == 0:		
+	if PlayerStats.health <= 0:		
 		go_to_position(MapManager.last_checkpoint_position)
+		PlayerStats.health = PlayerStats.max_health
 		
 		for enemy in MapManager.current_enemy_ids:
 			if enemy in MapManager.defeated_enemies:
-				continue
+				return
 			
 			enemy.return_to_spawn()

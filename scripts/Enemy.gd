@@ -11,7 +11,7 @@ var current_state: State = State.IDLE
 
 @export var move_speed: float = 60.0
 @export var detection_range: float = 200.0  # how close before chasing
-@export var attack_range: float = 100.0     # how close before attacking
+@export var attack_range: float = 140.0     # how close before attacking
 @export var spawn_point: Vector2            # where this enemy starts
 
 var max_health = 50
@@ -24,10 +24,16 @@ var sprite_original_modulate: Color = Color.WHITE
 var player: CharacterBody2D = null
 var battle_triggered: bool = false
 
+var attack_cooldown = 0.0
+var attack_cooldown_reduction = 0.5
+
 func _ready():
 	if self in MapManager.defeated_enemies:
 		queue_free()
 		return
+		
+	if self not in MapManager.current_enemy_ids:
+		MapManager.current_enemy_ids.append(self)
 	
 	# Remember where this enemy spawned
 	spawn_point = global_position
@@ -43,20 +49,17 @@ func _physics_process(_delta):
 	match current_state:
 		State.IDLE:   idle_behavior()
 		State.CHASE:  chase_behavior()
-		#State.ATTACK: attack_behavior()
+		State.ATTACK: attack_behavior()
 
 func idle_behavior():
 	# Check if player is close enough to start chasing
-	var distance_to_player = global_position.distance_to(player.global_position)
+	var distance_to_player = self.global_position.distance_to(player.global_position)
 	if distance_to_player < detection_range:
 		current_state = State.CHASE
 		print("Enemy spotted the diver!")
 
 func chase_behavior():
-	if self not in MapManager.current_enemy_ids:
-			MapManager.current_enemy_ids.append(self)
-	
-	var distance_to_player = global_position.distance_to(player.global_position)
+	var distance_to_player = self.global_position.distance_to(player.global_position)
 	
 	# If player got away go back to idle
 	if distance_to_player > detection_range * 1.5:
@@ -69,7 +72,7 @@ func chase_behavior():
 		return
 	
 	# Move toward the player
-	var direction = (player.global_position - global_position).normalized()
+	var direction = (player.global_position - self.global_position).normalized()
 	velocity = direction * move_speed
 	move_and_slide()
 	
@@ -82,8 +85,27 @@ func chase_behavior():
 		pass
 		
 func attack_behavior():
-	# Keep this the chase behaviour for now
-	chase_behavior()
+	var distance_to_player = self.global_position.distance_to(player.global_position)
+	
+	# If player got away go back to idle
+	if distance_to_player > detection_range * 1.5:
+		current_state = State.IDLE
+		return
+	
+	if distance_to_player > attack_range:
+		current_state = State.CHASE
+		return
+				
+	# Move toward the player
+	var direction = (player.global_position - global_position).normalized()
+	velocity = direction * move_speed
+	move_and_slide()
+		
+	if attack_cooldown == 0.0:
+		player.take_damage(damage)
+		attack_cooldown = 35.0
+	else:
+		attack_cooldown -= attack_cooldown_reduction
 		
 func _on_body_entered(_body):
 	pass
@@ -98,15 +120,18 @@ func take_damage(damage_to_take: int = 0):
 	health -= damage_to_take
 	health = clampi(health, 0, max_health)
 	flash_white()
-			
+				
 	if health == 0:		
 		MapManager.defeated_enemies.append(self)
 		MapManager.current_enemy_ids.erase(self)
 		queue_free()
+		
+func heal(health_to_heal: int = 0):
+	health += health_to_heal
+	health = clampi(health, 0, max_health)
 
 func flash_white():
-	sprite.modulate = Color(1, 1, 1, 1)
+	#sprite.modulate = Color(1, 1, 1, 1)
 	var tween = create_tween()
 	tween.tween_property(sprite, "modulate", sprite_original_modulate, 0.1)
 	await tween.finished
-
