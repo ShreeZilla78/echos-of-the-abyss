@@ -16,6 +16,7 @@ var player_block: int = PlayerStats.block
 var enemy_health: int = 30
 var enemy_max_health: int = 30
 var enemy_damage: int = 8
+var enemy_stunned: bool = false
 
 var is_player_turn: bool = true
 var deck: DeckManager
@@ -78,9 +79,12 @@ func add_starter_cards():
 		deck.draw_pile.append(card)
 	var fatal_gambit = FatalGambit.new()
 	deck.draw_pile.append(fatal_gambit)
-	deck.shuffle_draw_pile()
-	var diver_bell = DiverBell.new()
+	var diver_bell = DiverBellCard.new()
 	deck.draw_pile.append(diver_bell)
+	var stun_card = Stun.new()
+	deck.draw_pile.append(stun_card)
+	deck.shuffle_draw_pile()
+	
 	# Add one Fatal Gambit to the deck
 
 func start_turn():
@@ -116,7 +120,7 @@ func try_play_card(card: Card):
 		show_event_message("Not enough air!", 0.5)
 		return
 	player_air -= card.air_cost
-	deck.play_card(card)
+	deck.play_card(card, self)
 	update_ui()
 	update_hand_display()
 	check_battle_end()
@@ -132,6 +136,11 @@ func end_turn():
 	enemy_take_turn()
 
 func enemy_take_turn():
+	if enemy_stunned:
+		enemy_stunned = false
+		start_turn()
+		return
+
 	var damage_after_block = max(0, enemy_damage - player_block)
 	if damage_after_block > player_health:
 		player_health = 0

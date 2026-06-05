@@ -10,7 +10,7 @@ func _init():
 	block = 0
 	heal = 0
 
-func on_play(player: Player):
+func on_play(context: Battle):
 	var enemy
 	
 	if MapManager.current_enemy_ids.size() > 0:
@@ -21,7 +21,7 @@ func on_play(player: Player):
 	if enemy in MapManager.defeated_enemies:
 		return
 			
-	var distance_to_enemy = player.global_position.distance_to(enemy.global_position)
+	var distance_to_enemy = context.player.global_position.distance_to(enemy.global_position)
 	
 	#Makes it wait for the white flash
 	await Utility.flash_screen(Color.WHITE)
@@ -38,7 +38,7 @@ func on_play(player: Player):
 		
 	else:
 		await Utility.flash_screen(Color.RED)
-		player.take_damage(PlayerStats.health)
+		context.player.take_damage(context.player.health)
 			
 		#await Utility.show_event_message("The Gambit fails... The abyss takes you.")
 		#Utility.player_health = 0

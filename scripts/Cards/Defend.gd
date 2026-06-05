@@ -10,6 +10,6 @@ func _init():
 	block = 5
 	heal = 0
 
-func on_play(player: Player):	
-	player.increase_block(self.block)
+func on_play(context: Battle):	
+	context.player.increase_block(self.block)
 	

@@ -10,12 +10,13 @@ func _init():
 	block = 0
 	heal = 0
 
-func on_play(player_position: Vector2 = Vector2.ZERO):	
+func on_play(battle: Battle):
+	battle.apply_damage(damage)	
 	for enemy in MapManager.current_enemy_ids:
 		if enemy in MapManager.defeated_enemies:
 			continue
 			
-		var distance_to_enemy = player_position.distance_to(enemy.global_position)
+		var distance_to_enemy = battle.player.global_position.distance_to(enemy.global_position)
 		
 		if distance_to_enemy <= PlayerStats.attack_range:
 			enemy.take_damage(damage)
