@@ -11,7 +11,5 @@ func _init():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _on_play(battle: Battle):
-	battle.apply_damage(damage)
-	battle.enemy_stunned = true
+func _on_play(_player: Player):
 	pass

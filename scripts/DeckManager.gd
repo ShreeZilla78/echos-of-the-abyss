@@ -18,10 +18,10 @@ func draw_card(amount: int = 1):
 		if not draw_pile.is_empty():
 			hand.append(draw_pile.pop_front())
 
-func play_card(card: Card, context: Battle):
+func play_card(card: Card, player: Player):
 	hand.erase(card)
 	# Apply the card's effects to the battle
-	card.on_play(context)
+	card.on_play(player)
 	# Move to discard pile and fire the discard event
 	discard_pile.append(card)
 	card.on_discard()
