@@ -1,5 +1,5 @@
 # DiverBell.gd
-class_name DiverBell
+class_name DiverBellCard
 extends Card
 
 func _init():
@@ -10,9 +10,9 @@ func _init():
 	block = 10
 	heal = 0
 
-func on_play(battle):
+func on_play(context: Battle):
 	# Apply the block immediately
-	battle.player_gain_block(block)
+	context.player_gain_block(block)
 	# Set the next battle's health multiplier in MapManager
 	MapManager.next_enemy_health_multiplier = 1.3
 	MapManager.return_to_map() #skips the battle and returns to the map

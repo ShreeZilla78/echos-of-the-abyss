@@ -11,8 +11,15 @@ extends Resource
 @export var heal: int = 0
 @export var card_image: Texture2D = null
 
+<<<<<<< HEAD
 func on_play(_player: Player):
 	pass
+=======
+func on_play(context: Battle):
+	context.apply_damage(self.damage)
+	context.player_gain_block(self.block)
+	context.player_heal(self.heal)
+>>>>>>> d42064860bbfedc6d794e37246c6a8094e6fc8c4
 
 # This runs when the card hits the discard pile
 func on_discard():

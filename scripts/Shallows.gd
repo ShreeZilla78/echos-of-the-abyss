@@ -2,6 +2,7 @@
 extends Node2D
 
 var deck: DeckManager
+var battle: Battle
 
 @onready var health_bar = $UI/HealthBar
 @onready var hand_container = $UI/HandContainer
@@ -69,7 +70,12 @@ func update_hand_display():
 		hand_container.add_child(card_ui)
 
 func try_play_card(card: Card):	
+<<<<<<< HEAD
 	deck.play_card(card, player)
+=======
+	deck.play_card(card, battle)
+	deck.hand.erase(card)
+>>>>>>> d42064860bbfedc6d794e37246c6a8094e6fc8c4
 	deck.draw_card(1)
 	
 	#update_ui()
