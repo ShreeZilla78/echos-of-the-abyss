@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dykn8egb30nh6" path="res://scenes/Diver.tscn" id="2_kyqyn"]
 [ext_resource type="Texture2D" uid="uid://dln37bc8g7agp" path="res://assets/Shallows/TestMap.png" id="2_x07db"]
 [ext_resource type="PackedScene" uid="uid://bsbpq6k5ik0mi" path="res://scenes/BasicEnemy.tscn" id="5_t6lov"]
+[ext_resource type="Texture2D" uid="uid://cfbthdpbne2bb" path="res://assets/Shallows/ShallowsTilesSet (1).png" id="6_7om78"]
 [ext_resource type="PackedScene" uid="uid://bmr5mkyabair6" path="res://scenes/Checkpoint.tscn" id="6_414vw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7om78"]
@@ -25,6 +26,21 @@ radius = 175.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7om78"]
 radius = 140.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_414vw"]
+texture = ExtResource("6_7om78")
+texture_region_size = Vector2i(32, 32)
+1:48/size_in_atlas = Vector2i(5, 4)
+1:48/0 = 0
+1:38/size_in_atlas = Vector2i(4, 10)
+1:38/0 = 0
+6:38/size_in_atlas = Vector2i(4, 5)
+6:38/0 = 0
+27:40/size_in_atlas = Vector2i(4, 5)
+27:40/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_dlchw"]
+sources/1 = SubResource("TileSetAtlasSource_414vw")
 
 [node name="Shallows" type="Node2D" unique_id=245920443]
 position = Vector2(121, 187)
@@ -97,3 +113,10 @@ debug_color = Color(0.4745098, 0.4745098, 0.90588236, 1)
 position = Vector2(639, 419)
 shape = SubResource("CircleShape2D_7om78")
 debug_color = Color(0.4745098, 0.4745098, 0.90588236, 1)
+
+[node name="TileMap" type="TileMap" parent="." unique_id=536345934]
+tile_set = SubResource("TileSet_dlchw")
+format = 2
+layer_0/tile_data = PackedInt32Array(1310730, 65537, 38, 524288, 65537, 38, -196558, 65537, 38, 720973, 65537, 38, 1376333, 65537, 38, 2031691, 65537, 38, 1441841, 65537, 38, 2097210, 65537, 38)
+layer_1/name = "Layer1"
+layer_1/tile_data = PackedInt32Array(1638413, 393217, 38, 1048579, 393217, 38, 2555965, 393217, 38, 2359375, 393217, 38, 2555978, 393217, 38, 1704016, 393217, 38, 1245265, 393217, 38, 1114186, 393217, 38)
