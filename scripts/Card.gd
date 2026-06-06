@@ -11,6 +11,10 @@ extends Resource
 @export var heal: int = 0
 @export var card_image: Texture2D = null
 
+var cooldown: float = 0.0
+var current_cooldown: float = 0.0
+# Sets the current cooldown and keeps track of the cooldown duration
+
 func on_play(_player: Player):
 	pass
 

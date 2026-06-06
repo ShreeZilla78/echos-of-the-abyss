@@ -4,6 +4,7 @@ extends CharacterBody2D
 # Enemy states
 enum State { IDLE, CHASE, ATTACK }
 var current_state: State = State.IDLE
+var stun_duration: float = 0.0
 
 # Settings you can change per enemy in the Inspector
 @export var enemy_type: String = "basic"
@@ -46,6 +47,9 @@ func _physics_process(_delta):
 	if player == null or battle_triggered:
 		return
 	
+	if stun_duration > 0.0:
+		stun_duration -= _delta
+
 	match current_state:
 		State.IDLE:   idle_behavior()
 		State.CHASE:  chase_behavior()
@@ -100,13 +104,22 @@ func attack_behavior():
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * move_speed
 	move_and_slide()
+
+	if stun_duration > 0.0:
+		return
+		#This just makes it so that if the enemy is stunned the enemy turn is skipped
+		# and I did this by just ending the func and returning nothing 
 		
 	if attack_cooldown == 0.0:
 		player.take_damage(damage)
+		flash_black()
 		attack_cooldown = 35.0
 	else:
 		attack_cooldown -= attack_cooldown_reduction
-		
+
+func stun(duration: float):
+	stun_duration = duration
+
 func _on_body_entered(_body):
 	pass
 
@@ -131,7 +144,13 @@ func heal(health_to_heal: int = 0):
 	health = clampi(health, 0, max_health)
 
 func flash_white():
-	#sprite.modulate = Color(1, 1, 1, 1)
+	sprite.modulate = Color(1, 1, 1, 1)
 	var tween = create_tween()
+	tween.tween_property(sprite, "modulate", sprite_original_modulate, 0.1)
+	await tween.finished
+
+func flash_black():
+	sprite.modulate = Color(0, 0,0,1)
+	var tween =  create_tween()
 	tween.tween_property(sprite, "modulate", sprite_original_modulate, 0.1)
 	await tween.finished

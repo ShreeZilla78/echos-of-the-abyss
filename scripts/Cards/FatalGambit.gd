@@ -21,7 +21,7 @@ func on_play(player: Player):
 	if enemy in MapManager.defeated_enemies:
 		return
 			
-	var distance_to_enemy = player.player.global_position.distance_to(enemy.global_position)
+	var distance_to_enemy = player.global_position.distance_to(enemy.global_position)
 	
 	#Makes it wait for the white flash
 	await Utility.flash_screen(Color.WHITE)
