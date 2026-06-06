@@ -38,6 +38,22 @@ texture_region_size = Vector2i(32, 32)
 6:38/0 = 0
 27:40/size_in_atlas = Vector2i(4, 5)
 27:40/0 = 0
+10:38/size_in_atlas = Vector2i(5, 4)
+10:38/0 = 0
+15:38/size_in_atlas = Vector2i(4, 4)
+15:38/0 = 0
+11:42/size_in_atlas = Vector2i(3, 6)
+11:42/0 = 0
+27:50/size_in_atlas = Vector2i(2, 2)
+27:50/0 = 0
+23:48/size_in_atlas = Vector2i(3, 4)
+23:48/0 = 0
+20:49/size_in_atlas = Vector2i(3, 3)
+20:49/0 = 0
+17:49/size_in_atlas = Vector2i(3, 3)
+17:49/0 = 0
+31:38/size_in_atlas = Vector2i(3, 7)
+31:38/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_dlchw"]
 sources/1 = SubResource("TileSetAtlasSource_414vw")
@@ -115,8 +131,11 @@ shape = SubResource("CircleShape2D_7om78")
 debug_color = Color(0.4745098, 0.4745098, 0.90588236, 1)
 
 [node name="TileMap" type="TileMap" parent="." unique_id=536345934]
+visible = false
 tile_set = SubResource("TileSet_dlchw")
 format = 2
 layer_0/tile_data = PackedInt32Array(1310730, 65537, 38, 524288, 65537, 38, -196558, 65537, 38, 720973, 65537, 38, 1376333, 65537, 38, 2031691, 65537, 38, 1441841, 65537, 38, 2097210, 65537, 38)
 layer_1/name = "Layer1"
 layer_1/tile_data = PackedInt32Array(1638413, 393217, 38, 1048579, 393217, 38, 2555965, 393217, 38, 2359375, 393217, 38, 2555978, 393217, 38, 1704016, 393217, 38, 1245265, 393217, 38, 1114186, 393217, 38)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMap" unique_id=207369740]
