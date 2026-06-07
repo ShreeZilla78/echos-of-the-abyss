@@ -14,7 +14,7 @@ func flash_screen(color: Color):
 	# Create a colored overlay that fades out
 	var overlay = ColorRect.new()
 	overlay.color = color
-	overlay.size = get_viewport().get_visible_rect().size
+	overlay.size = get_viewport().get_visible_rect().size * 100
 	overlay.modulate.a = 0.8
 	add_child(overlay)
 	# Fade it out over 0.5 seconds
