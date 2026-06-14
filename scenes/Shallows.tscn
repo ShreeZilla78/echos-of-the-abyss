@@ -59,7 +59,7 @@ texture_region_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_414vw")
 
 [node name="Shallows" type="Node2D" unique_id=245920443]
-position = Vector2(121, 187)
+position = Vector2(122, 187)
 script = ExtResource("1_kyqyn")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1344411512]
@@ -134,7 +134,7 @@ debug_color = Color(0.4745098, 0.4745098, 0.90588236, 1)
 visible = false
 tile_set = SubResource("TileSet_dlchw")
 format = 2
-layer_0/tile_data = PackedInt32Array(1310730, 65537, 38, 524288, 65537, 38, -196558, 65537, 38, 720973, 65537, 38, 1376333, 65537, 38, 2031691, 65537, 38, 1441841, 65537, 38, 2097210, 65537, 38)
+layer_0/tile_data = PackedInt32Array(1310730, 65537, 38, 524288, 65537, 38, 1376333, 65537, 38, 1441841, 65537, 38, 2097210, 65537, 38)
 layer_1/name = "Layer1"
 layer_1/tile_data = PackedInt32Array(1638413, 393217, 38, 1048579, 393217, 38, 2555965, 393217, 38, 2359375, 393217, 38, 2555978, 393217, 38, 1704016, 393217, 38, 1245265, 393217, 38, 1114186, 393217, 38)
 

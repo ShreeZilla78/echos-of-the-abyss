@@ -97,18 +97,19 @@ func attack_behavior():
 	if distance_to_player > attack_range:
 		current_state = State.CHASE
 		return
-				
-	# Move toward the player
-	var direction = (player.global_position - global_position).normalized()
-	velocity = direction * move_speed
-	move_and_slide()
 		
-	if attack_cooldown <= 0.0:
+	if attack_cooldown == 0.0:		
 		player.take_damage(damage)
 		flash_black()
-		attack_cooldown = 1.25
+		attack_cooldown = 0.7
 	else:
 		attack_cooldown -= frame_delta
+		attack_cooldown = clampf(attack_cooldown, 0.0, 0.7)
+				
+	# Move toward the player
+	var direction = (player.global_position - self.global_position).normalized()
+	velocity = direction * move_speed
+	move_and_slide()
 		
 func stun_behaviour():
 	stun_duration -= frame_delta
