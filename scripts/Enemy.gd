@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 # Enemy states
-enum State { IDLE, CHASE, ATTACK }
+enum State { IDLE, CHASE, ATTACK, STUN }
 var current_state: State = State.IDLE
 var stun_duration: float = 0.0
 
@@ -19,6 +19,8 @@ var max_health = 50
 var health = 50
 var damage = 15
 
+var distance_to_player
+
 @onready var sprite: TextureRect = $TextureRect
 var sprite_original_modulate: Color = Color.WHITE
 
@@ -26,7 +28,7 @@ var player: CharacterBody2D = null
 var battle_triggered: bool = false
 
 var attack_cooldown = 0.0
-var attack_cooldown_reduction = 0.5
+var frame_delta
 
 func _ready():
 	if self in MapManager.defeated_enemies:
@@ -43,28 +45,26 @@ func _ready():
 	# Remember the original sprite tint so the flash can return to it
 	sprite_original_modulate = sprite.modulate
 	
-func _physics_process(_delta):
+func _physics_process(delta):
 	if player == null or battle_triggered:
 		return
-	
-	if stun_duration > 0.0:
-		stun_duration -= _delta
+		
+	frame_delta = delta
+		
+	distance_to_player = self.global_position.distance_to(player.global_position)
 
 	match current_state:
 		State.IDLE:   idle_behavior()
 		State.CHASE:  chase_behavior()
 		State.ATTACK: attack_behavior()
+		State.STUN:	  stun_behaviour()
 
 func idle_behavior():
-	# Check if player is close enough to start chasing
-	var distance_to_player = self.global_position.distance_to(player.global_position)
+	# Check if player is close enough to start chasing	
 	if distance_to_player < detection_range:
 		current_state = State.CHASE
-		print("Enemy spotted the diver!")
 
-func chase_behavior():
-	var distance_to_player = self.global_position.distance_to(player.global_position)
-	
+func chase_behavior():	
 	# If player got away go back to idle
 	if distance_to_player > detection_range * 1.5:
 		current_state = State.IDLE
@@ -89,8 +89,6 @@ func chase_behavior():
 		pass
 		
 func attack_behavior():
-	var distance_to_player = self.global_position.distance_to(player.global_position)
-	
 	# If player got away go back to idle
 	if distance_to_player > detection_range * 1.5:
 		current_state = State.IDLE
@@ -104,20 +102,22 @@ func attack_behavior():
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * move_speed
 	move_and_slide()
-
-	if stun_duration > 0.0:
-		return
-		#This just makes it so that if the enemy is stunned the enemy turn is skipped
-		# and I did this by just ending the func and returning nothing 
 		
-	if attack_cooldown == 0.0:
+	if attack_cooldown <= 0.0:
 		player.take_damage(damage)
 		flash_black()
-		attack_cooldown = 35.0
+		attack_cooldown = 1.25
 	else:
-		attack_cooldown -= attack_cooldown_reduction
+		attack_cooldown -= frame_delta
+		
+func stun_behaviour():
+	stun_duration -= frame_delta
+	
+	if stun_duration <= 0.0:
+		current_state = State.CHASE
 
 func stun(duration: float):
+	current_state = State.STUN
 	stun_duration = duration
 
 func _on_body_entered(_body):

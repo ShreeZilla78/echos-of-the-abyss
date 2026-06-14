@@ -124,7 +124,6 @@ func increase_block(block: int = 0):
 
 func take_damage(damage: int = 0):
 	PlayerStats.health -= damage
-	print(PlayerStats.health)
 	PlayerStats.health = clampi(PlayerStats.health, 0, PlayerStats.max_health)
 			
 	if PlayerStats.health <= 0:		
