@@ -14,6 +14,7 @@ var stun_duration: float = 0.0
 @export var detection_range: float = 200.0  # how close before chasing
 @export var attack_range: float = 140.0     # how close before attacking
 @export var spawn_point: Vector2            # where this enemy starts
+@export var sprite: Sprite2D                # Sprite 
 
 var max_health = 50
 var health = 50
@@ -21,7 +22,9 @@ var damage = 15
 
 var distance_to_player
 
-@onready var sprite: TextureRect = $TextureRect
+
+
+#@onready var sprite: TextureRect = $TextureRect
 var sprite_original_modulate: Color = Color.WHITE
 
 var player: CharacterBody2D = null
@@ -43,7 +46,7 @@ func _ready():
 	# Find the player node in the scene
 	player = get_tree().get_first_node_in_group("player")
 	# Remember the original sprite tint so the flash can return to it
-	sprite_original_modulate = sprite.modulate
+#	sprite_original_modulate = sprite.modulate
 	
 func _physics_process(delta):
 	if player == null or battle_triggered:
@@ -101,7 +104,7 @@ func attack_behavior():
 		
 	if attack_cooldown <= 0.0:		
 		player.take_damage(damage)
-		flash_black()
+		#flash_black()
 		attack_cooldown = 0.7
 	else:
 		attack_cooldown -= frame_delta
@@ -137,10 +140,10 @@ func return_to_spawn():
 	current_state = State.IDLE
 	battle_triggered = false
 
-func take_damage(damage_to_take: int = 0):
+func take_damage(damage_to_take: int):
 	health -= damage_to_take
 	health = clampi(health, 0, max_health)
-	flash_white()
+	#flash_white()
 				
 	if health == 0:		
 		MapManager.defeated_enemies.append(self)
@@ -155,14 +158,14 @@ func heal(health_to_heal: int = 0):
 	health += health_to_heal
 	health = clampi(health, 0, max_health)
 
-func flash_white():
-	sprite.modulate = Color(1, 1, 1, 1)
-	var tween = create_tween()
-	tween.tween_property(sprite, "modulate", sprite_original_modulate, 0.1)
-	await tween.finished
+# func flash_white():
+# 	sprite.modulate = Color(1, 1, 1, 1)
+# 	var tween = create_tween()
+# 	tween.tween_property(sprite, "modulate", sprite_original_modulate, 0.1)
+# 	await tween.finished
 
-func flash_black():
-	sprite.modulate = Color(0, 0,0,1)
-	var tween =  create_tween()
-	tween.tween_property(sprite, "modulate", sprite_original_modulate, 0.1)
-	await tween.finished
+# func flash_black():
+# 	sprite.modulate = Color(0, 0,0,1)
+# 	var tween =  create_tween()
+# 	tween.tween_property(sprite, "modulate", sprite_original_modulate, 0.1)
+# 	await tween.finished

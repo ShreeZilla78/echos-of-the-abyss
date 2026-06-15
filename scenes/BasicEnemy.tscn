@@ -1,34 +1,24 @@
 [gd_scene format=3 uid="uid://bsbpq6k5ik0mi"]
 
-[ext_resource type="Script" uid="uid://cv141lcr7my0x" path="res://scripts/Enemy.gd" id="1_84j8r"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_84j8r"]
-size = Vector2(10, 10)
+[ext_resource type="Script" uid="uid://cclirwy7cjuwt" path="res://scripts/Enemy_Template.gd" id="1_cg60k"]
+[ext_resource type="Texture2D" uid="uid://bivi6gt677i0f" path="res://assets/Shallows/Crab.png" id="2_cg60k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3kgu"]
-height = 50.0
+radius = 2.5
+height = 37.64
 
 [node name="BasicEnemy" type="CharacterBody2D" unique_id=1678589214]
 scale = Vector2(3, 3)
-script = ExtResource("1_84j8r")
+script = ExtResource("1_cg60k")
 enemy_type = "canonLobster"
 move_speed = 75.0
 attack_range = 160.0
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1416612563]
-offset_left = -19.999998
-offset_top = -8.0
-offset_right = 40.937866
-offset_bottom = 8.580223
-scale = Vector2(0.6564063, 0.96247995)
-texture = SubResource("PlaceholderTexture2D_84j8r")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1297358241]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=352867091]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=352867091]
 rotation = 1.5707964
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.8000001, 0.8000001)
 shape = SubResource("CapsuleShape2D_f3kgu")
 debug_color = Color(0.3372549, 0.5254902, 0.88235295, 0.9254902)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1531018366]
+texture = ExtResource("2_cg60k")

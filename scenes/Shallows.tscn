@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bsbpq6k5ik0mi" path="res://scenes/BasicEnemy.tscn" id="5_t6lov"]
 [ext_resource type="Texture2D" uid="uid://cfbthdpbne2bb" path="res://assets/Shallows/ShallowsTilesSet (1).png" id="6_7om78"]
 [ext_resource type="PackedScene" uid="uid://bmr5mkyabair6" path="res://scenes/Checkpoint.tscn" id="6_414vw"]
+[ext_resource type="Script" uid="uid://ety2p7txeeks" path="res://scripts/spawner.gd" id="6_dlchw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7om78"]
 bg_color = Color(0, 0, 0, 0.5803922)
@@ -215,3 +216,12 @@ layer_1/name = "Layer1"
 layer_1/tile_data = PackedInt32Array(1638413, 393217, 38, 1048579, 393217, 38, 2555965, 393217, 38, 2359375, 393217, 38, 2555978, 393217, 38, 1704016, 393217, 38, 1245265, 393217, 38, 1114186, 393217, 38)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMap" unique_id=207369740]
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1495084716]
+position = Vector2(572, 40)
+script = ExtResource("6_dlchw")
+enemy_scene = ExtResource("5_t6lov")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=574594916]
+wait_time = 1.5
+autostart = true
