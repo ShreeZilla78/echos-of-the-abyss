@@ -10,13 +10,13 @@ var discard_pile: Array[Card] = []
 func shuffle_draw_pile():
 	draw_pile.shuffle()
 
-func draw_card(amount: int = 1):
+func draw_card(index: int, amount: int = 1):
 	for i in amount:
 		# If draw pile is empty, recycle the discard pile
 		if draw_pile.is_empty():
 			recycle_discard()
 		if not draw_pile.is_empty():
-			hand.append(draw_pile.pop_front())
+			hand.insert(index, draw_pile.pop_front())
 
 func play_card(card: Card, player: Player):
 	hand.erase(card)

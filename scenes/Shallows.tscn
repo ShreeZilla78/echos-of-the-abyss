@@ -21,10 +21,10 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t6lov"]
-radius = 175.0
+radius = 180.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7om78"]
-radius = 140.0
+radius = 160.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_414vw"]
 texture = ExtResource("6_7om78")
@@ -127,6 +127,9 @@ texture_region_size = Vector2i(32, 32)
 44:61/0 = 0
 50:61/0 = 0
 50:59/0 = 0
+19:36/0 = 0
+19:39/0 = 0
+19:41/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_dlchw"]
 sources/1 = SubResource("TileSetAtlasSource_414vw")
@@ -169,19 +172,27 @@ text = "Health"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Diver" parent="." unique_id=1376913090 groups=["Player"] instance=ExtResource("2_kyqyn")]
-position = Vector2(247.00003, 533)
-
 [node name="Checkpoint" parent="." unique_id=1991625994 instance=ExtResource("6_414vw")]
 position = Vector2(247, 533)
 
+[node name="Diver" parent="." unique_id=1376913090 groups=["Player"] instance=ExtResource("2_kyqyn")]
+position = Vector2(247.00003, 533)
+
 [node name="BasicEnemy" parent="." unique_id=1678589214 instance=ExtResource("5_t6lov")]
-position = Vector2(631, 423)
+position = Vector2(593, 321)
 enemy_id = "001"
 
 [node name="BasicEnemy2" parent="." unique_id=1880773976 instance=ExtResource("5_t6lov")]
-position = Vector2(1002, 169)
+position = Vector2(724, 175)
 enemy_id = "002"
+
+[node name="BasicEnemy3" parent="." unique_id=1153551200 instance=ExtResource("5_t6lov")]
+position = Vector2(915.00006, 255)
+enemy_id = "002"
+
+[node name="BasicEnemy4" parent="." unique_id=2083293878 instance=ExtResource("5_t6lov")]
+position = Vector2(806, 404)
+enemy_id = "001"
 
 [node name="AttackRanges" type="Area2D" parent="." unique_id=567988579]
 visible = false

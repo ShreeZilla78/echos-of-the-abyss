@@ -15,8 +15,22 @@ default_font_size = 13
 [sub_resource type="Theme" id="Theme_7bkrs"]
 default_font_size = 17
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_068a4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbg5g"]
+bg_color = Color(0.6, 0.6, 0.6, 0.7490196)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="Panel" type="Panel" unique_id=1769212231]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(96, 144)
 offset_left = 3.0
 offset_top = 4.0
 offset_right = 43.0
@@ -55,3 +69,14 @@ theme = SubResource("Theme_7bkrs")
 text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Cooldown" type="ProgressBar" parent="." unique_id=870973285]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 144.0
+theme_override_styles/background = SubResource("StyleBoxFlat_068a4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lbg5g")
+max_value = 1.0
+step = 0.001
+fill_mode = 3
+show_percentage = false

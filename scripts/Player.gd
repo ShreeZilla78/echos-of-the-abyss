@@ -19,7 +19,7 @@ var stamina: float = 2.0
 var stamina_recovery_rate: float = 0.5  # seconds recovered per second
 var stamina_drain_rate: float = 1.0     # drains 1 per second while sprinting
 
-@export var attack_range: float = 175.0
+@export var attack_range: float = 180.0
 
 var attack_delay: float = 0.0
 @export var attack_recovery_rate: float = 1.0  # delay recovered per second

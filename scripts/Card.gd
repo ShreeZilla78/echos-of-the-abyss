@@ -12,7 +12,7 @@ extends Panel
 
 var ui: CardUI = null
 
-var cooldown: float = 0.0
+var cooldown: float = 1.0
 var current_cooldown: float = 0.0		# Sets the current cooldown and keeps track of the cooldown duration
 
 func on_play(_player: Player):

@@ -7,6 +7,8 @@ signal card_clicked(card)
 var card_data: Card
 var self_color_modulate: Color = Color(1, 1, 1, 1)
 
+@onready var cooldown_bar= $Cooldown
+
 func setup(card: Card):
 	card_data = card
 	card_data.ui = self
@@ -30,4 +32,4 @@ func on_discard():
 
 func _ready():
 	# add this so the cards dont get too tiny
-	custom_minimum_size = Vector2(120 * 0.8, 180 * 0.8)
+	custom_minimum_size = Vector2(96, 144)

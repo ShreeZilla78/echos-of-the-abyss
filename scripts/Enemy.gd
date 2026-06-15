@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 # Enemy states
-enum State { IDLE, CHASE, ATTACK, STUN }
+enum State { IDLE, CHASE, ATTACK, STUN, ESCAPE }
 var current_state: State = State.IDLE
 var stun_duration: float = 0.0
 
@@ -58,6 +58,7 @@ func _physics_process(delta):
 		State.CHASE:  chase_behavior()
 		State.ATTACK: attack_behavior()
 		State.STUN:	  stun_behaviour()
+		State.ESCAPE: escape_behaviour()
 
 func idle_behavior():
 	# Check if player is close enough to start chasing	
@@ -98,13 +99,12 @@ func attack_behavior():
 		current_state = State.CHASE
 		return
 		
-	if attack_cooldown == 0.0:		
+	if attack_cooldown <= 0.0:		
 		player.take_damage(damage)
 		flash_black()
 		attack_cooldown = 0.7
 	else:
 		attack_cooldown -= frame_delta
-		attack_cooldown = clampf(attack_cooldown, 0.0, 0.7)
 				
 	# Move toward the player
 	var direction = (player.global_position - self.global_position).normalized()
@@ -116,6 +116,13 @@ func stun_behaviour():
 	
 	if stun_duration <= 0.0:
 		current_state = State.CHASE
+		
+func escape_behaviour():
+	var direction = -(player.global_position - self.global_position).normalized()
+	velocity = direction * move_speed * 100
+	move_and_slide()
+	
+	current_state = State.ATTACK
 
 func stun(duration: float):
 	current_state = State.STUN
@@ -139,6 +146,10 @@ func take_damage(damage_to_take: int = 0):
 		MapManager.defeated_enemies.append(self)
 		MapManager.current_enemy_ids.erase(self)
 		queue_free()
+		
+		return
+	
+	current_state = State.ESCAPE
 		
 func heal(health_to_heal: int = 0):
 	health += health_to_heal
