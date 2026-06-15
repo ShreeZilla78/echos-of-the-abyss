@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dykn8egb30nh6"]
 
 [ext_resource type="Script" uid="uid://d1p25itrm5u0y" path="res://scripts/Player.gd" id="1_xboaq"]
-[ext_resource type="Texture2D" uid="uid://b3tv7rdn26o7j" path="res://Diver.png" id="2_xgvnv"]
+[ext_resource type="Texture2D" uid="uid://24fbu7i2bo8u" path="res://assets/AdvancedDiverPlaceholderArt/east.png" id="2_xgvnv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xboaq"]
 size = Vector2(6, 27)
